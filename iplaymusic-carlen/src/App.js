@@ -16,6 +16,15 @@ function App() {
   const colors = theme;
   const styles = {
     bg: css`
+      font-size: 72px;
+      background: -webkit-linear-gradient(
+        left,
+        ${colors.textgrad1},
+        ${colors.textgrad2}
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
       background-color: ${colors.primary};
     `,
   };
