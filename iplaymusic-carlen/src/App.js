@@ -2,9 +2,11 @@ import { vars } from "./vars";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useState } from "react";
-import Button from "./comp/sub-comp/Button";
 import ColorContext from "./context/colorContext";
 import CatagoryDropdown from "./pages/Catagorydropdown";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./templates/Layout";
+import Playbutton from "./comp/sub-comp/Playbutton";
 
 function App() {
   const { light, dark } = vars;
@@ -33,13 +35,11 @@ function App() {
   };
   return (
     <ColorContext.Provider value={colors}>
-      <div className="App">
-        <div css={styles.bg}>hejsa</div>
-        <button onClick={handleThemeChange}>hejsa</button>
-        <Button onClick={handleThemeChange} />
-        <CatagoryDropdown/>
-        <CatagoryDropdown/>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}></Route>
+        </Routes>
+      </BrowserRouter>
     </ColorContext.Provider>
   );
 }
