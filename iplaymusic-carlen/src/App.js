@@ -2,6 +2,8 @@ import { vars } from "./vars";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useState } from "react";
+import Button from "./comp/sub-comp/Button";
+import ColorContext from "./context/colorContext";
 import Playbutton from "./comp/sub-comp/Playbutton";
 
 function App() {
@@ -30,11 +32,14 @@ function App() {
     `,
   };
   return (
-    <div className="App">
-      <div css={styles.bg}>hejsa</div>
-      <button onClick={handleThemeChange}>hejsa</button>
+    <ColorContext.Provider value={colors}>
+      <div className="App">
+        <div css={styles.bg}>hejsa</div>
+        <button onClick={handleThemeChange}>hejsa</button>
       <Playbutton/>
-    </div>
+        <Button onClick={handleThemeChange} />
+      </div>
+    </ColorContext.Provider>
   );
 }
 
