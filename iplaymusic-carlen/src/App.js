@@ -2,6 +2,7 @@ import { vars } from "./vars";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useState } from "react";
+import Playbutton from "./comp/sub-comp/Playbutton";
 
 function App() {
   const { light, dark } = vars;
@@ -32,6 +33,7 @@ function App() {
     <div className="App">
       <div css={styles.bg}>hejsa</div>
       <button onClick={handleThemeChange}>hejsa</button>
+      <Playbutton/>
     </div>
   );
 }
