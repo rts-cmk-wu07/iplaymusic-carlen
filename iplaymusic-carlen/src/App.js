@@ -36,7 +36,8 @@ function App() {
       <div className="App">
         <div css={styles.bg}>hejsa</div>
         <button onClick={handleThemeChange}>hejsa</button>
-      <Playbutton/>
+        <Playbutton />
+        <Playbutton />
         <Button onClick={handleThemeChange} />
       </div>
     </ColorContext.Provider>
