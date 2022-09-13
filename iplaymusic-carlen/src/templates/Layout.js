@@ -14,7 +14,7 @@ const Layout = () => {
   return (
     <div className="h-screen flex flex-col justify-between">
       <Nav top={true} />
-      <div css={styles.bg} className="h-screen overflow-auto">
+      <div css={styles.bg} className="h-screen overflow-auto p-3">
         <Outlet />
       </div>
       <Nav />

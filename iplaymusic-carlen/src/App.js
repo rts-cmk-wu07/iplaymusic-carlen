@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./templates/Layout";
 import Playbutton from "./comp/sub-comp/Playbutton";
 import HandleColorChange from "./context/handleColorChange";
+import EventFeed from "./pages/EventFeed";
 
 function App() {
   const { light, dark } = vars;
@@ -22,7 +23,9 @@ function App() {
       <ColorContext.Provider value={colors}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout />}></Route>
+            <Route path="/" element={<Layout />}>
+              <Route path="/eventfeed" element={<EventFeed />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </ColorContext.Provider>
