@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import IonIcon from "@reacticons/ionicons";
+import { useNavigate } from "react-router-dom";
 const BackBtn = () => {
-  let currentcolor = "#000000";
   const styles = {
     icon: css`
       color: black;
@@ -10,9 +10,8 @@ const BackBtn = () => {
       stroke: black;
     `,
   };
-  function backHandler() {}
   return (
-    <button css={styles.icon}>
+    <button css={styles.icon} onClick={useNavigate(-1)}>
       <IonIcon
         name="chevron-back-circle-sharp "
         size="large"
