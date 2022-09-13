@@ -1,7 +1,11 @@
+import NewReleases from "../comp/NewReleases"
+import SliderAlbums from "../comp/SliderAlbums"
+
 export default function AllAlbums() {
   return (
     <div>
-      <h1>All Albums</h1>
+      <SliderAlbums />
+      <NewReleases />
     </div>
   )
 }
