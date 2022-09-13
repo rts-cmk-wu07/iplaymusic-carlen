@@ -6,6 +6,7 @@ import ColorContext from "./context/colorContext"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Layout from "./templates/Layout"
 import Playbutton from "./comp/sub-comp/Playbutton"
+import SliderAlbums from "./comp/SliderAlbums"
 
 function App() {
   const { light, dark } = vars
@@ -37,6 +38,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}></Route>
+          <Route path="/slideralbums" element={<SliderAlbums />}></Route>
         </Routes>
       </BrowserRouter>
     </ColorContext.Provider>

@@ -1,19 +1,13 @@
-.container.testimonials__container {
-  width: 100%;
-  padding-bottom: 4rem;
-}
-
 .client__avatar {
-  width: 4rem;
+  width: 6rem;
   aspect-ratio: 1/1;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 12px;
   margin: 0 auto 1rem;
-  border: 0.4rem solid var(--color-primary-variant);
 }
 
 .testimonial {
-  background: var(--color-bg-variant);
+  background: red;
   text-align: center;
   padding: 2rem;
   border-radius: 2rem;
