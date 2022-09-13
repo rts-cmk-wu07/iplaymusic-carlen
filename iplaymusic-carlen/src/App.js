@@ -6,6 +6,7 @@ import Layout from "./templates/Layout"
 import Playbutton from "./comp/sub-comp/Playbutton"
 import HandleColorChange from "./context/handleColorChange"
 import AllAlbums from "./pages/AllAlbums"
+import EventFeed from "./pages/EventFeed"
 
 function App() {
   const { light, dark } = vars
@@ -23,7 +24,9 @@ function App() {
       <ColorContext.Provider value={colors}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout />}></Route>
+            <Route path="/" element={<Layout />}>
+              <Route path="/eventfeed" element={<EventFeed />} />
+            </Route>
             <Route path="/allalbums" element={<AllAlbums />}></Route>
           </Routes>
         </BrowserRouter>

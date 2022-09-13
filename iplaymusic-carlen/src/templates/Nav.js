@@ -15,13 +15,18 @@ const Nav = ({ top }) => {
     bg: css`
       background: ${colors.bg};
     `,
+    textColor: css`
+      color: ${colors.text};
+    `,
   };
   return (
     <div>
       {top ? (
         <div css={styles.bg} className="flex justify-between">
           <BackBtn />
-          {location.pathname !== "/" ? <h1>{location.pathname}</h1> : null}
+          {location.pathname !== "/" ? (
+            <h1 css={styles.textColor}>{location.pathname}</h1>
+          ) : null}
           <div>Search</div>
         </div>
       ) : (
