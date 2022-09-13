@@ -1,27 +1,16 @@
-import { useState } from "react";
-import FeatherIcon from "feather-icons-react";
+import { useState } from "react"
+import Button from "./Button"
 
 const Playbutton = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false)
 
   function buttonPlayer(e) {
     {
-      setIsPlaying(!isPlaying);
+      setIsPlaying(!isPlaying)
     }
   }
 
-  return (
-    <button
-      className="rounded-full border border-solid border-primary-100 p-3 from-gradient-100 to-gradient-200 bg-gradient-to-r"
-      onClick={buttonPlayer}
-    >
-      <FeatherIcon
-        icon={isPlaying ? "pause" : "play"}
-        fill="white"
-        stroke="white"
-      />
-    </button>
-  );
-};
+  return <Button icon="play" />
+}
 
-export default Playbutton;
+export default Playbutton
