@@ -1,9 +1,22 @@
-import FeatherIcon from "feather-icons-react";
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+import IonIcon from "@reacticons/ionicons";
+import { useNavigate } from "react-router-dom";
 const BackBtn = () => {
-  function backHandler() {}
+  const styles = {
+    icon: css`
+      color: black;
+      fill: black;
+      stroke: black;
+    `,
+  };
   return (
-    <button>
-      <FeatherIcon icon="chevron-left" />
+    <button css={styles.icon} onClick={useNavigate(-1)}>
+      <IonIcon
+        name="chevron-back-circle-sharp "
+        size="large"
+        css={styles.icon}
+      />
     </button>
   );
 };
