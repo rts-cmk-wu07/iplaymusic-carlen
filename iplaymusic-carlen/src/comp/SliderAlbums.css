@@ -1,21 +1,12 @@
 .client__avatar {
-  width: 6rem;
+  width: 8rem;
   aspect-ratio: 1/1;
   overflow: hidden;
   border-radius: 12px;
-  margin: 0 auto 1rem;
-}
-
-.testimonial {
-  background: red;
-  text-align: center;
-  padding: 2rem;
-  border-radius: 2rem;
-  user-select: none;
+  margin: 1rem;
 }
 
 .client__review {
-  color: var(--color-light);
   font-weight: 300;
   display: block;
   width: 80%;

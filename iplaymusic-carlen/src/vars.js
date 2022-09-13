@@ -15,4 +15,4 @@ export const vars = {
     text: "white",
     bg: "black",
   },
-};
+}
