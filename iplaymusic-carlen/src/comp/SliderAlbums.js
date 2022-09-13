@@ -11,7 +11,7 @@ import AVTR4 from "./assets/avatar4.jpg"
 import { useContext } from "react"
 import ColorContext from "../context/colorContext"
 // import Swiper core and required modules
-import { Pagination } from "swiper"
+import { Pagination, Navigation } from "swiper"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 
@@ -64,17 +64,21 @@ const SliderAlbums = () => {
       </div>
 
       <Swiper
-        className="container testimonials__container"
+        className=""
         // install Swiper modules
-        modules={[Pagination]}
+        modules={[Navigation, Pagination]}
         spaceBetween={40}
         slidesPerView={3}
+        navigation
         pagination={{ clickable: true }}
       >
         {data.map(({ albumCover }, index) => {
           return (
             <SwiperSlide key={index}>
-              <div className="client__avatar">
+              <div
+                className="w-32 
+              overflow-hidden m-4 rounded-xl"
+              >
                 <img src={albumCover} />
               </div>
             </SwiperSlide>
