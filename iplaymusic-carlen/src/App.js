@@ -1,6 +1,4 @@
 import { vars } from "./vars";
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { useState } from "react";
 import ColorContext from "./context/colorContext";
 import CatagoryDropdown from "./comp/Catagorydropdown";
@@ -8,6 +6,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./templates/Layout";
 import Playbutton from "./comp/sub-comp/Playbutton";
 import Catagory from "./pages/Catagory";
+import HandleColorChange from "./context/handleColorChange";
+import EventFeed from "./pages/EventFeed";
 
 function App() {
   const { light, dark } = vars;
@@ -20,29 +20,19 @@ function App() {
     }
   };
   const colors = theme;
-  const styles = {
-    bg: css`
-      font-size: 72px;
-      background: -webkit-linear-gradient(
-        left,
-        ${colors.textgrad1},
-        ${colors.textgrad2}
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: bold;
-      background-color: ${colors.primary};
-    `,
-  };
   return (
-    <ColorContext.Provider value={colors}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}></Route>
-          <Route path="catagory" element={<Catagory />}> </Route>
-        </Routes>
-      </BrowserRouter>
-    </ColorContext.Provider>
+    <HandleColorChange.Provider value={handleThemeChange}>
+      <ColorContext.Provider value={colors}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route path="/eventfeed" element={<EventFeed />} />
+              <Route path="/catagory" element={<Catagory />}> </Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ColorContext.Provider>
+    </HandleColorChange.Provider>
   );
 }
 
