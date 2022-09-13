@@ -51,9 +51,13 @@ const SliderAlbums = () => {
 
   return (
     <section id="testimonials">
-      <div className="flex justify-between mr-6 ml-4 mt-4 ">
+      <div className="flex justify-between pr-6 pl-4 mt-4 ">
         <h2 className="font-extrabold">Featured Albums</h2>
-        <a css={styles.viewAll} href="/featuredalbums">
+        <a
+          className="font-extralight"
+          css={styles.viewAll}
+          href="/featuredalbums"
+        >
           View All
         </a>
       </div>
