@@ -1,23 +1,24 @@
-import { vars } from "./vars";
+import { vars } from "./vars"
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import { useState } from "react";
-import ColorContext from "./context/colorContext";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "./templates/Layout";
-import Playbutton from "./comp/sub-comp/Playbutton";
+import { css } from "@emotion/react"
+import { useState } from "react"
+import ColorContext from "./context/colorContext"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Layout from "./templates/Layout"
+import Playbutton from "./comp/sub-comp/Playbutton"
+import SliderAlbums from "./comp/SliderAlbums"
 
 function App() {
-  const { light, dark } = vars;
-  const [theme, setTheme] = useState(light);
+  const { light, dark } = vars
+  const [theme, setTheme] = useState(light)
   const handleThemeChange = () => {
     if (theme === light) {
-      setTheme(dark);
+      setTheme(dark)
     } else {
-      setTheme(light);
+      setTheme(light)
     }
-  };
-  const colors = theme;
+  }
+  const colors = theme
   const styles = {
     bg: css`
       font-size: 72px;
@@ -31,7 +32,7 @@ function App() {
       font-weight: bold;
       background-color: ${colors.primary};
     `,
-  };
+  }
   return (
     <ColorContext.Provider value={colors}>
       <BrowserRouter>
@@ -40,7 +41,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </ColorContext.Provider>
-  );
+  )
 }
 
-export default App;
+export default App
