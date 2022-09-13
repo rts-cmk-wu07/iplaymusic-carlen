@@ -17,35 +17,51 @@ import "swiper/css/pagination"
 const data = [
   {
     albumCover: AVTR1,
+    albumName: "Old Town Road",
     artist: "Billy Ray Cyrus",
+    amountSongs: "12",
   },
   {
     albumCover: AVTR2,
-    artist: "Billy Ray Cyrus",
+    albumName: "Victory Lab",
+    artist: "Nipsey Hussle",
+    amountSongs: "8",
   },
   {
     albumCover: AVTR3,
-    artist: "Billy Ray Cyrus",
+    albumName: "Thank U, Next",
+    artist: "Ariana Grande",
+    amountSongs: "13",
   },
   {
     albumCover: AVTR4,
-    artist: "Billy Ray Cyrus",
+    albumName: "Death Race For Love",
+    artist: "Juice WRLD",
+    amountSongs: "11",
   },
   {
     albumCover: AVTR1,
+    albumName: "Old Town Road",
     artist: "Billy Ray Cyrus",
+    amountSongs: "12",
   },
   {
     albumCover: AVTR2,
-    artist: "Billy Ray Cyrus",
+    albumName: "Victory Lab",
+    artist: "Nipsey Hussle",
+    amountSongs: "8",
   },
   {
     albumCover: AVTR3,
-    artist: "Billy Ray Cyrus",
+    albumName: "Thank U, Next",
+    artist: "Ariana Grande",
+    amountSongs: "13",
   },
   {
     albumCover: AVTR4,
-    artist: "Billy Ray Cyrus",
+    albumName: "Death Race For Love",
+    artist: "Juice WRLD",
+    amountSongs: "11",
   },
 ]
 
@@ -59,31 +75,31 @@ const NewReleases = () => {
 
   return (
     <section id="testimonials">
-      <div className="flex justify-between mr-6 ml-4 mt-4 ">
+      <div className="flex justify-between pr-6 pl-4 mt-4 mb-4 items-center">
         <h2 className="font-extrabold">New Releases</h2>
-        <a css={styles.viewAll} href="/newreleases">
+        <a className="font-extralight" css={styles.viewAll} href="/newreleases">
           View All
         </a>
       </div>
 
-      {data.map(({ albumCover, artist }, index) => {
+      {data.map(({ albumCover, artist, albumName, amountSongs }, index) => {
         return (
-          <div className="flex" key={index}>
+          <section className="flex pl-1" key={index}>
             <img
-              className="w-16 
-              overflow-hidden m-3 rounded-xl shadow-lg"
+              className="w-20 
+              overflow-hidden m-3 rounded-xl shadow-lg "
               src={albumCover}
             />
-            <div className="flex justify-between w-full items-center">
-              <div className="flex-col  w-40">
-                <h2>asdan</h2>
-                <p className="font-light text-xs">{artist}</p>
+            <label className="flex justify-between w-full items-center">
+              <div className="flex-col w-40 ">
+                <h2 className="font-bold text-md pb-1">{albumName}</h2>
+                <p className="font-light text-xs pt-1">{artist}</p>
               </div>
-              <div className="flex pr-4">
-                <p>12 songs</p>
+              <div className="flex pr-6 font-light text-sm">
+                <p>{amountSongs} Songs</p>
               </div>
-            </div>
-          </div>
+            </label>
+          </section>
         )
       })}
     </section>
