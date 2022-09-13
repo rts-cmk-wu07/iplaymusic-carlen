@@ -3,10 +3,11 @@ import { vars } from "./vars";
 import { css } from "@emotion/react";
 import { useState } from "react";
 import ColorContext from "./context/colorContext";
-import CatagoryDropdown from "./pages/Catagorydropdown";
+import CatagoryDropdown from "./comp/Catagorydropdown";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./templates/Layout";
 import Playbutton from "./comp/sub-comp/Playbutton";
+import Catagory from "./pages/Catagory";
 
 function App() {
   const { light, dark } = vars;
@@ -38,6 +39,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}></Route>
+          <Route path="catagory" element={<Catagory />}> </Route>
         </Routes>
       </BrowserRouter>
     </ColorContext.Provider>
