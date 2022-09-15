@@ -26,8 +26,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route path="/eventfeed" element={<EventFeed />} />
+              <Route path="/allalbums" element={<AllAlbums />}></Route>
             </Route>
-            <Route path="/allalbums" element={<AllAlbums />}></Route>
           </Routes>
         </BrowserRouter>
       </ColorContext.Provider>
