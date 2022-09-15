@@ -15,6 +15,9 @@ const Nav = ({ top }) => {
     bg: css`
       background: ${colors.bg};
     `,
+    bottomBg: css`
+      background: ${colors.addcolor};
+    `,
     textColor: css`
       color: ${colors.text};
     `,
@@ -31,7 +34,7 @@ const Nav = ({ top }) => {
         </div>
       ) : (
         <div
-          css={styles.bg}
+          css={styles.bottomBg}
           className="flex justify-around items-center h-12 shadow-inner"
         >
           <Button icon={"pulse"} />
