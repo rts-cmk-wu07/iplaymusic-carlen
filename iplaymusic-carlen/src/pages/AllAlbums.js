@@ -5,7 +5,7 @@ import Heading from "../comp/sub-comp/Heading"
 export default function AllAlbums() {
   return (
     <div>
-      <Heading className="text-3xl font-bold" />
+      <Heading className="mb-3" text="All Albums"></Heading>
       <SliderAlbums />
       <NewReleases />
     </div>
