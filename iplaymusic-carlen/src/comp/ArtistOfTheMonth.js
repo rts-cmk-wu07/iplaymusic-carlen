@@ -1,61 +1,59 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
-import AVTR1 from "./assets/avatar1.jpg"
-import AVTR2 from "./assets/avatar2.jpg"
-import AVTR3 from "./assets/avatar3.jpg"
-import AVTR4 from "./assets/avatar4.jpg"
+import AVTR1 from "./assets/dog.jpeg"
+import AVTR2 from "./assets/mountain.jpeg"
+import AVTR3 from "./assets/walrus.jpeg"
+import AVTR4 from "./assets/rain.jpeg"
 
 import { useContext } from "react"
 import ColorContext from "../context/colorContext"
+// import Swiper core and required modules
+import { Navigation } from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react"
+// Import Swiper styles
+import "swiper/css"
+import "swiper/css/pagination"
 
 const data = [
   {
-    albumCover: AVTR1,
-    albumName: "Old Town Road",
-    artist: "Billy Ray Cyrus",
-    amountSongs: "12",
+    artistCover: AVTR1,
+    month: "September",
+    artist: "Jonas Brothers",
   },
   {
-    albumCover: AVTR2,
-    albumName: "Victory Lab",
-    artist: "Nipsey Hussle",
-    amountSongs: "8",
+    artistCover: AVTR2,
+    month: "September",
+    artist: "Jonas Brothers",
   },
   {
-    albumCover: AVTR3,
-    albumName: "Thank U, Next",
-    artist: "Ariana Grande",
-    amountSongs: "13",
+    artistCover: AVTR3,
+    month: "September",
+    artist: "Jonas Brothers",
   },
   {
-    albumCover: AVTR4,
-    albumName: "Death Race For Love",
-    artist: "Juice WRLD",
-    amountSongs: "11",
+    artistCover: AVTR4,
+    month: "September",
+    artist: "Jonas Brothers",
   },
   {
-    albumCover: AVTR1,
-    albumName: "Old Town Road",
-    artist: "Billy Ray Cyrus",
-    amountSongs: "12",
+    artistCover: AVTR1,
+    month: "September",
+    artist: "Jonas Brothers",
   },
   {
-    albumCover: AVTR2,
-    albumName: "Victory Lab",
-    artist: "Nipsey Hussle",
-    amountSongs: "8",
+    artistCover: AVTR2,
+    month: "September",
+    artist: "Jonas Brothers",
   },
   {
-    albumCover: AVTR3,
-    albumName: "Thank U, Next",
-    artist: "Ariana Grande",
-    amountSongs: "13",
+    artistCover: AVTR3,
+    month: "September",
+    artist: "Jonas Brothers",
   },
   {
-    albumCover: AVTR4,
-    albumName: "Death Race For Love",
-    artist: "Juice WRLD",
-    amountSongs: "11",
+    artistCover: AVTR4,
+    month: "September",
+    artist: "Jonas Brothers",
   },
 ]
 
@@ -68,40 +66,64 @@ const ArtistOfTheMonth = () => {
     fontColor: css`
       color: ${colors.text};
     `,
+    artistName: css`
+      color: #ee0979;
+    `,
   }
 
   return (
     <section id="testimonials">
-      <div className="flex justify-between pr-6 pl-4 mt-4 mb-4 items-center">
+      <div className="flex justify-between pr-6 pl-4 mt-4 ">
         <h2 css={styles.fontColor} className="font-extrabold">
-          New Releases
+          Artist Of The Month
         </h2>
-        <a className="font-extralight" css={styles.viewAll} href="/newreleases">
+        <a
+          className="font-extralight"
+          css={styles.viewAll}
+          href="/artistofthemonth"
+        >
           View All
         </a>
       </div>
 
-      {data.map(({ albumCover, artist, albumName, amountSongs }, index) => {
-        return (
-          <section css={styles.fontColor} className="flex pl-1" key={index}>
-            <img
-              alt="Album Cover"
-              className="w-20 
-              overflow-hidden m-3 rounded-xl shadow-lg "
-              src={albumCover}
-            />
-            <label className="flex justify-between w-full items-center">
-              <div className="flex-col w-40 ">
-                <h2 className="font-bold text-md pb-1">{albumName}</h2>
-                <p className="font-light text-xs pt-1">{artist}</p>
+      <Swiper
+        className="items-center"
+        // install Swiper modules
+        modules={[Navigation]}
+        spaceBetween={20}
+        slidesPerView={1.2}
+        navigation
+      >
+        {data.map(({ artistCover, month, artist }, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <div className="flex justify-center items-center">
+                <div
+                  className="w-72 h-48 z-10 flex relative
+              overflow-hidden m-4 rounded-xl shadow-lg"
+                >
+                  <img
+                    className="h-48 absolute z-10"
+                    alt="artist Cover"
+                    src={artistCover}
+                  />
+                  <div className="flex flex-col justify-center items-center w-full pt-20">
+                    <p className="z-20 text-white text-md font-semibold pb-1">
+                      {month}
+                    </p>
+                    <h2
+                      css={styles.artistName}
+                      className="z-20 text-2xl font-bold"
+                    >
+                      {artist}
+                    </h2>
+                  </div>
+                </div>
               </div>
-              <div className="flex pr-6 font-light text-sm">
-                <p>{amountSongs} Songs</p>
-              </div>
-            </label>
-          </section>
-        )
-      })}
+            </SwiperSlide>
+          )
+        })}
+      </Swiper>
     </section>
   )
 }
