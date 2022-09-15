@@ -71,12 +71,17 @@ const NewReleases = () => {
     viewAll: css`
       color: ${colors.primary};
     `,
+    fontColor: css`
+      color: ${colors.text};
+    `,
   }
 
   return (
     <section id="testimonials">
       <div className="flex justify-between pr-6 pl-4 mt-4 mb-4 items-center">
-        <h2 className="font-extrabold">New Releases</h2>
+        <h2 css={styles.fontColor} className="font-extrabold">
+          New Releases
+        </h2>
         <a className="font-extralight" css={styles.viewAll} href="/newreleases">
           View All
         </a>
@@ -84,7 +89,7 @@ const NewReleases = () => {
 
       {data.map(({ albumCover, artist, albumName, amountSongs }, index) => {
         return (
-          <section className="flex pl-1" key={index}>
+          <section css={styles.fontColor} className="flex pl-1" key={index}>
             <img
               className="w-20 
               overflow-hidden m-3 rounded-xl shadow-lg "
