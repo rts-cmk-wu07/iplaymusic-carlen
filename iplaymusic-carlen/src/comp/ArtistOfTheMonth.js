@@ -23,7 +23,7 @@ const data = [
   {
     artistCover: AVTR2,
     month: "September",
-    artist: "Jonas Brothers",
+    artist: "Jonas Doggies",
   },
   {
     artistCover: AVTR3,
