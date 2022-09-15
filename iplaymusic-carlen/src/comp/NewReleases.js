@@ -7,12 +7,6 @@ import AVTR4 from "./assets/avatar4.jpg"
 
 import { useContext } from "react"
 import ColorContext from "../context/colorContext"
-// import Swiper core and required modules
-import { Navigation } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
-// Import Swiper styles
-import "swiper/css"
-import "swiper/css/pagination"
 
 const data = [
   {
@@ -91,6 +85,7 @@ const NewReleases = () => {
         return (
           <section css={styles.fontColor} className="flex pl-1" key={index}>
             <img
+              alt="Album Cover"
               className="w-20 
               overflow-hidden m-3 rounded-xl shadow-lg "
               src={albumCover}

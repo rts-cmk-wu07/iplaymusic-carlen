@@ -82,7 +82,7 @@ const SliderAlbums = () => {
                 className="w-32 
               overflow-hidden m-4 rounded-xl shadow-lg"
               >
-                <img src={albumCover} />
+                <img alt="Album Cover" src={albumCover} />
               </div>
             </SwiperSlide>
           )
