@@ -47,12 +47,17 @@ const SliderAlbums = () => {
     viewAll: css`
       color: ${colors.primary};
     `,
+    fontColor: css`
+      color: ${colors.text};
+    `,
   }
 
   return (
     <section id="testimonials">
       <div className="flex justify-between pr-6 pl-4 mt-4 ">
-        <h2 className="font-extrabold">Featured Albums</h2>
+        <h2 css={styles.fontColor} className="font-extrabold">
+          Featured Albums
+        </h2>
         <a
           className="font-extralight"
           css={styles.viewAll}
