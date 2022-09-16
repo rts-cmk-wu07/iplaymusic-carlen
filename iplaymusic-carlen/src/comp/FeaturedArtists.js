@@ -87,31 +87,26 @@ const FeaturedArtists = () => {
         className="items-center"
         // install Swiper modules
         modules={[Navigation]}
-        spaceBetween={20}
+        spaceBetween={10}
         slidesPerView={3}
         navigation
       >
         {data.map(({ artistCover, month, artist }, index) => {
           return (
             <SwiperSlide key={index}>
-              <div className="flex justify-center items-center">
-                <div
-                  className=" flex flex-col 
+              <div
+                className=" flex flex-col justify-center items-center 
                m-4"
-                >
-                  <img
-                    className="rounded-full"
-                    alt="artist Cover"
-                    src={artistCover}
-                  />
-                  <div className="flex flex-col justify-center items-center w-full ">
-                    <h2
-                      css={styles.artistName}
-                      className="text-md font-semibold"
-                    >
-                      {artist}
-                    </h2>
-                  </div>
+              >
+                <img
+                  className="rounded-full"
+                  alt="artist Cover"
+                  src={artistCover}
+                />
+                <div className="flex flex-col justify-center items-center w-full ">
+                  <h2 css={styles.artistName} className="text-md font-light">
+                    {artist}
+                  </h2>
                 </div>
               </div>
             </SwiperSlide>
