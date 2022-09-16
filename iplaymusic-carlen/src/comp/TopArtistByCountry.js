@@ -24,26 +24,32 @@ const data = [
   {
     top: "TOP 50",
     country: "Jonas Brothers",
+    color: "green",
   },
   {
     top: "TOP 50",
     country: "Jonas Brothers",
+    color: "blue",
   },
   {
     top: "TOP 50",
     country: "Jonas Brothers",
+    color: "green",
   },
   {
     top: "TOP 50",
     country: "Jonas Brothers",
+    color: "blue",
   },
   {
     top: "TOP 50",
     country: "Jonas Brothers",
+    color: "green",
   },
   {
     top: "TOP 50",
     country: "Jonas Brothers",
+    color: "blue",
   },
 ]
 
@@ -84,7 +90,7 @@ const ArtistOfTheMonth = () => {
         slidesPerView={2}
         navigation
       >
-        {data.map(({ top, country }, index) => {
+        {data.map(({ top, country, color }, index) => {
           return (
             <SwiperSlide key={index}>
               <div className="flex justify-center items-center">
@@ -93,9 +99,15 @@ const ArtistOfTheMonth = () => {
               overflow-hidden m-4 rounded-xl shadow-lg"
                 >
                   <div className="flex flex-col justify-center items-center w-full pt-20">
-                    <p className=" text-white text-md font-semibold pb-1">
-                      {top}
-                    </p>
+                    {
+                      <p
+                        css={styles.fontColor}
+                        className="text-white text-md font-semibold pb-1"
+                      >
+                        {top}
+                      </p>
+                    }
+
                     <h2 css={styles.artistName} className=" text-2xl font-bold">
                       {country}
                     </h2>
