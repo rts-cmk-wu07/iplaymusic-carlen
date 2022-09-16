@@ -11,6 +11,7 @@ import AllAlbums from "./pages/AllAlbums"
 import EventFeed from "./pages/EventFeed"
 import Home from "./pages/Home"
 import Playlists from "./pages/Playlists"
+import AlbumDetails from "./pages/AlbumDetails"
 
 function App() {
   const { light, dark } = vars
