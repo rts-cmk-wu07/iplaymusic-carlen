@@ -1,9 +1,11 @@
 import { vars } from "./vars"
 import { useState } from "react"
 import ColorContext from "./context/colorContext"
+import CatagoryDropdown from "./comp/Catagorydropdown"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Layout from "./templates/Layout"
 import Playbutton from "./comp/sub-comp/Playbutton"
+import Catagory from "./pages/Catagory"
 import HandleColorChange from "./context/handleColorChange"
 import AllAlbums from "./pages/AllAlbums"
 import EventFeed from "./pages/EventFeed"
@@ -29,6 +31,9 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="/eventfeed" element={<EventFeed />} />
+              <Route path="/catagory" element={<Catagory />}>
+                {" "}
+              </Route>
               <Route path="/allalbums" element={<AllAlbums />}></Route>
               <Route path="/allartists" element={<AllArtists />} />
             </Route>

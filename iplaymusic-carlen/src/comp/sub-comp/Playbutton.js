@@ -1,13 +1,13 @@
 import { useState } from "react";
-import FeatherIcon from "feather-icons-react";
+import IonIcon from "@reacticons/ionicons";
 
 const Playbutton = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   function buttonPlayer(e) {
-    {
+    
       setIsPlaying(!isPlaying);
-    }
+    
   }
 
   return (
@@ -15,11 +15,12 @@ const Playbutton = () => {
       className="rounded-full border border-solid border-primary-100 p-3 from-gradient-100 to-gradient-200 bg-gradient-to-r"
       onClick={buttonPlayer}
     >
-      <FeatherIcon
+      <IonIcon className="text-white" name={isPlaying ? "pause" : "play"}/>
+      {/* <FeatherIcon
         icon={isPlaying ? "pause" : "play"}
         fill="white"
         stroke="white"
-      />
+      /> */}
     </button>
   );
 };
