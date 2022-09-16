@@ -7,7 +7,9 @@ import Layout from "./templates/Layout";
 import Playbutton from "./comp/sub-comp/Playbutton";
 import Catagory from "./pages/Catagory";
 import HandleColorChange from "./context/handleColorChange";
+import AllAlbums from "./pages/AllAlbums";
 import EventFeed from "./pages/EventFeed";
+import Home from "./pages/Home";
 
 function App() {
   const { light, dark } = vars;
@@ -26,8 +28,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
               <Route path="/eventfeed" element={<EventFeed />} />
               <Route path="/catagory" element={<Catagory />}> </Route>
+              <Route path="/allalbums" element={<AllAlbums />}></Route>
             </Route>
           </Routes>
         </BrowserRouter>

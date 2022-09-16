@@ -11,10 +11,10 @@ export const vars = {
   light: {
     primary: "#ff1168",
     secondary: "#341931",
-    addcolor: "#111625",
+    addcolor: "white",
     textgrad1: "#ee0979",
     textgrad2: "#ff6a00",
     text: "black",
     bg: "white",
   },
-};
+}
