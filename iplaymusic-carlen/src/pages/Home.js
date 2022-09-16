@@ -6,6 +6,7 @@ const Home = () => {
       <Links link="/eventfeed" linkText="Event feed" />
       <Links link="/catagory" linkText="Catagory" />
       <Links link="/allalbums" linkText="All Albums" />
+      
     </div>
   );
 };

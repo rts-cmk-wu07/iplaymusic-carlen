@@ -4,6 +4,7 @@ import { useContext } from "react";
 import ColorContext from "../context/colorContext";
 import { Outlet } from "react-router-dom";
 import Nav from "./Nav";
+import Player from "../comp/Player";
 const Layout = () => {
   const colors = useContext(ColorContext);
   const styles = {
@@ -17,6 +18,7 @@ const Layout = () => {
       <div css={styles.bg} className="h-screen overflow-auto p-3">
         <Outlet />
       </div>
+      <Player/>
       <Nav />
     </div>
   );
