@@ -34,7 +34,7 @@ function App() {
               <Route path="/catagory" element={<Catagory />}>
                 {" "}
               </Route>
-              <Route path="/allalbums" element={<AllAlbums />}></Route>
+              <Route path="/allalbums" element={<AllAlbums />} />
               <Route path="/allartists" element={<AllArtists />} />
             </Route>
           </Routes>
