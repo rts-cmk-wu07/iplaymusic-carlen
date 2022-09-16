@@ -5,17 +5,15 @@ const Playbutton = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   function buttonPlayer(e) {
-    
-      setIsPlaying(!isPlaying);
-    
+    setIsPlaying(!isPlaying);
   }
 
   return (
     <button
-      className="rounded-full border border-solid border-primary-100 p-3 from-gradient-100 to-gradient-200 bg-gradient-to-r"
+      className="flex justify-center items-center rounded-full w-12 h-12 border border-solid border-primary-100 p-3 from-gradient-100 to-gradient-200 bg-gradient-to-r"
       onClick={buttonPlayer}
     >
-      <IonIcon className="text-white" name={isPlaying ? "pause" : "play"}/>
+      <IonIcon className="text-white" name={isPlaying ? "pause" : "play"} />
       {/* <FeatherIcon
         icon={isPlaying ? "pause" : "play"}
         fill="white"
