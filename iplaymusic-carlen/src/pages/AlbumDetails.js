@@ -25,7 +25,7 @@ const AlbumDetails = ({ amoSongs }) => {
           <TagsRender tagText="country road" containerTag />
         </div>
       </div>
-      <section>
+      <section className="p-3">
         <h3>All songs</h3>
         <div className="flex w-full">
           <Song
