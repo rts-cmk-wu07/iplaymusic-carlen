@@ -12,9 +12,6 @@ const Button = ({ onClick, icon, main, size }) => {
       background: ${colors.primary};
     `,
     icon: css`
-      --border-color: transparent;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       background: linear-gradient(
         to right,
         ${colors.textgrad1},

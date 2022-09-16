@@ -5,8 +5,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Layout from "./templates/Layout"
 import Playbutton from "./comp/sub-comp/Playbutton"
 import HandleColorChange from "./context/handleColorChange"
+import AllAlbums from "./pages/AllAlbums"
 import EventFeed from "./pages/EventFeed"
 import AllArtists from "./pages/AllArtists"
+import Home from "./pages/Home"
 
 function App() {
   const { light, dark } = vars
@@ -25,7 +27,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
               <Route path="/eventfeed" element={<EventFeed />} />
+              <Route path="/allalbums" element={<AllAlbums />}></Route>
               <Route path="/allartists" element={<AllArtists />} />
             </Route>
           </Routes>
