@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import IonIcon from "@reacticons/ionicons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, redirect } from "react-router-dom";
 const BackBtn = () => {
   const styles = {
     icon: css`
@@ -11,12 +11,8 @@ const BackBtn = () => {
     `,
   };
   return (
-    <button css={styles.icon} onClick={useNavigate(-1)}>
-      <IonIcon
-        name="chevron-back-circle-sharp "
-        size="large"
-        css={styles.icon}
-      />
+    <button css={styles.icon} onClick={() => console.log("Noget")}>
+      <IonIcon name="chevron-back-circle " size="large" css={styles.icon} />
     </button>
   );
 };
