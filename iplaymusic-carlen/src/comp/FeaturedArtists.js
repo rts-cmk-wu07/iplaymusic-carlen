@@ -17,43 +17,35 @@ import "swiper/css/pagination"
 const data = [
   {
     artistCover: AVTR1,
-    month: "September",
-    artist: "Jonas Doggies",
+    artist: "Aesop Rock",
   },
   {
     artistCover: AVTR2,
-    month: "September",
-    artist: "Jonas Broters",
+    artist: "ONE OK RO...",
   },
   {
     artistCover: AVTR3,
-    month: "September",
-    artist: "Jonas Brothers",
+    artist: "PnB Rock",
   },
   {
     artistCover: AVTR4,
-    month: "September",
-    artist: "Jonas Brothers",
+    artist: "Justin Bieber",
   },
   {
     artistCover: AVTR1,
-    month: "September",
-    artist: "Jonas Brothers",
+    artist: "Aesop Rock",
   },
   {
     artistCover: AVTR2,
-    month: "September",
-    artist: "Jonas Brothers",
+    artist: "ONE OK RO...",
   },
   {
     artistCover: AVTR3,
-    month: "September",
-    artist: "Jonas Brothers",
+    artist: "PnB Rock",
   },
   {
     artistCover: AVTR4,
-    month: "September",
-    artist: "Jonas Brothers",
+    artist: "Justin Bieber",
   },
 ]
 
@@ -91,20 +83,20 @@ const FeaturedArtists = () => {
         slidesPerView={3}
         navigation
       >
-        {data.map(({ artistCover, month, artist }, index) => {
+        {data.map(({ artistCover, artist }, index) => {
           return (
             <SwiperSlide key={index}>
               <div
                 className=" flex flex-col justify-center items-center 
-               m-4"
+               m-1 mt-7"
               >
                 <img
                   className="rounded-full"
                   alt="artist Cover"
                   src={artistCover}
                 />
-                <div className="flex flex-col justify-center items-center w-full ">
-                  <h2 css={styles.artistName} className="text-md font-light">
+                <div className="flex flex-col justify-center items-center w-full pt-4">
+                  <h2 css={styles.fontColor} className="text-md font-light">
                     {artist}
                   </h2>
                 </div>
