@@ -10,6 +10,7 @@ import HandleColorChange from "./context/handleColorChange";
 import AllAlbums from "./pages/AllAlbums";
 import EventFeed from "./pages/EventFeed";
 import Home from "./pages/Home";
+import AlbumDetails from "./pages/AlbumDetails";
 
 function App() {
   const { light, dark } = vars;
@@ -30,8 +31,9 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="/eventfeed" element={<EventFeed />} />
-              <Route path="/catagory" element={<Catagory />}> </Route>
-              <Route path="/allalbums" element={<AllAlbums />}></Route>
+              <Route path="/catagory" element={<Catagory />} />
+              <Route path="/allalbums" element={<AllAlbums />} />
+              <Route path="/albumdetails" element={<AlbumDetails />} />
             </Route>
           </Routes>
         </BrowserRouter>
