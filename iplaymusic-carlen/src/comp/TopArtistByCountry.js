@@ -23,33 +23,33 @@ const data = [
   },
   {
     top: "TOP 50",
-    country: "Jonas Brothers",
+    country: "Spain",
+    color: "red",
+  },
+  {
+    top: "TOP 50",
+    country: "Sweden",
+    color: "yellow",
+  },
+  {
+    top: "TOP 50",
+    country: "Denmark",
     color: "green",
   },
   {
     top: "TOP 50",
-    country: "Jonas Brothers",
+    country: "Germany",
     color: "blue",
   },
   {
     top: "TOP 50",
-    country: "Jonas Brothers",
-    color: "green",
+    country: "China",
+    color: "red",
   },
   {
     top: "TOP 50",
-    country: "Jonas Brothers",
-    color: "blue",
-  },
-  {
-    top: "TOP 50",
-    country: "Jonas Brothers",
-    color: "green",
-  },
-  {
-    top: "TOP 50",
-    country: "Jonas Brothers",
-    color: "blue",
+    country: "Ukraine",
+    color: "yellow",
   },
 ]
 
@@ -93,24 +93,28 @@ const ArtistOfTheMonth = () => {
         {data.map(({ top, country, color }, index) => {
           return (
             <SwiperSlide key={index}>
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center pt-10">
                 <div
-                  className="w-72 h-48 flex
-              overflow-hidden m-4 rounded-xl shadow-lg"
+                  className=" w-72 h-36 flex
+              overflow-hidden rounded-xl shadow-lg"
                 >
-                  <div className="flex flex-col justify-center items-center w-full pt-20">
-                    {
-                      <p
-                        css={styles.fontColor}
-                        className="text-white text-md font-semibold pb-1"
-                      >
-                        {top}
-                      </p>
-                    }
+                  <div
+                    className={` flex flex-col justify-center items-center w-full
+                    ${
+                      color === "green"
+                        ? "bg-catColor-400"
+                        : color === "blue"
+                        ? "bg-catColor-100"
+                        : color === "red"
+                        ? "bg-catColor-800"
+                        : color === "yellow"
+                        ? "bg-catColor-700"
+                        : "bg-catColor-600"
+                    }`}
+                  >
+                    <p className="text-white text-2xl font-semibold">{top}</p>
 
-                    <h2 css={styles.artistName} className=" text-2xl font-bold">
-                      {country}
-                    </h2>
+                    <h2 className="text-white text-md font-light">{country}</h2>
                   </div>
                 </div>
               </div>
