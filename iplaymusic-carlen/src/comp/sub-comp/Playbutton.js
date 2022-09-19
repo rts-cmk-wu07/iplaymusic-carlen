@@ -10,7 +10,7 @@ const Playbutton = () => {
 
   return (
     <button
-      className="rounded-full border border-solid w-12 h-12 flex justify-center items-center border-primary-100 p-3 from-gradient-100 to-gradient-200 bg-gradient-to-r mr-4"
+      className="flex justify-center items-center rounded-full w-12 h-12 border border-solid border-primary-100 p-3 from-gradient-100 to-gradient-200 bg-gradient-to-r"
       onClick={buttonPlayer}
     >
       <IonIcon className="text-white" name={isPlaying ? "pause" : "play"} />
