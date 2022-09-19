@@ -5,26 +5,25 @@ import { useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
+import { useContext } from "react";
+import ColorContext from "../context/colorContext"
 
 
 const Player = () => {
-  const [isPlaying, setIsPlaying] = useState(false)
+  const colors = useContext(ColorContext)
+  const [isPlaying, setIsPlaying] = useState(false);
   const musicTracks = [
     {
-      name: "Mystery",
-      src: "https://res.cloudinary.com/mp3",
+      name: "name",
+      src: "https://github.com/cookieman2002/iplay-music-mp3/blob/main/Cantina%20Band.mp3?=raw",
     },
     {
       name: "Mystery",
-      src: "https://www.bensound.com/bensound-music/bensound-memories.mp3",
-    },
-    {
-      name: "Mystery",
-      src: "https://www.bensound.com/bensound-music/bensound-memories.mp3",
+      src: "http://github.com/cookieman2002/iplay-music-mp3/blob/main/bensound-memories.mp3?=raw",
     },
   ];
 
-  const [isTracking, setIsTracking] = useState(0);
+  const [isTracking, setIsTracking] = useState(1);
   const handleClickPrevious = () => {
     setIsTracking((currentTrack) =>
       currentTrack === 0 ? musicTracks.length - 1 : currentTrack - 1
@@ -47,20 +46,37 @@ const Player = () => {
         border-radius: 0px;
         width: 100%;
       }
+      
+    `,
+    overlay: css`
+    background-color: ${colors.bg};
+
+    && span{
+      color: ${colors.text}
+    }
     `,
   };
   function playerHandler() {
-    setIsPlaying(!isPlaying)
-    console.log(isPlaying)
+    setIsPlaying(!isPlaying);
+    console.log(isPlaying);
   }
   return (
-    <div css={styles.audioplayer} onClick={playerHandler}>
-      {isPlaying && (<div className="absolute z-10 bg-gradient-to-r top-0 from-gradient-100 to-gradient-200 w-screen h-screen">
-      <IonIcon name="close" onClick={() => playerHandler(!isPlaying)}/>
-      </div>)}
+    <div
+      css={styles.audioplayer}
+      className="flex justify-center flex-col items-center"
+    >
+      {isPlaying && (
+        <div css={styles.overlay} className="absolute z-10 bg-gradient-to-r top-0  w-screen h-screen">
+          <IonIcon name="close" className="text-3xl"  onClick={() => playerHandler(!isPlaying)} />
+          <div>
+
+          </div>
+        </div>
+      )}
+      <span onClick={playerHandler}>Extend</span>
       <AudioPlayer
-        style={{background: "linear-gradient(#ee0979, #341931)" }}
-        autoPlay={false}
+        style={{ background: "linear-gradient(#ee0979, #341931)" }}
+        autoPlay
         src={musicTracks[isTracking].src}
         onPlay={musicTracks[isTracking].src}
         header={`now playing ${musicTracks[isTracking].name}`}
