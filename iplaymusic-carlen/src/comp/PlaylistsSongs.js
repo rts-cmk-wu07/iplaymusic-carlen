@@ -8,55 +8,56 @@ import AVTR4 from "./assets/avatar4.jpg"
 import { useContext } from "react"
 import ColorContext from "../context/colorContext"
 import Playbutton from "./sub-comp/Playbutton"
+import Song from "./Song"
 
 const data = [
   {
     albumCover: AVTR1,
-    albumName: "Old Town Road",
+    song: "Old Town Road",
     artist: "Billy Ray Cyrus",
-    amountSongs: "12",
+    time: "3:58",
   },
   {
     albumCover: AVTR2,
-    albumName: "Victory Lab",
+    song: "Victory Lab",
     artist: "Nipsey Hussle",
-    amountSongs: "8",
+    time: "2:46",
   },
   {
     albumCover: AVTR3,
-    albumName: "Thank U, Next",
+    song: "Thank U, Next",
     artist: "Ariana Grande",
-    amountSongs: "13",
+    time: "4:12",
   },
   {
     albumCover: AVTR4,
-    albumName: "Death Race For Love",
+    song: "Death Race For Love",
     artist: "Juice WRLD",
-    amountSongs: "11",
+    time: "3:37",
   },
   {
     albumCover: AVTR1,
-    albumName: "Old Town Road",
+    song: "Old Town Road",
     artist: "Billy Ray Cyrus",
-    amountSongs: "12",
+    time: "3:12",
   },
   {
     albumCover: AVTR2,
-    albumName: "Victory Lab",
+    song: "Victory Lab",
     artist: "Nipsey Hussle",
-    amountSongs: "8",
+    time: "4:12",
   },
   {
     albumCover: AVTR3,
-    albumName: "Thank U, Next",
+    song: "Thank U, Next",
     artist: "Ariana Grande",
-    amountSongs: "13",
+    time: "3:37",
   },
   {
     albumCover: AVTR4,
-    albumName: "Death Race For Love",
+    song: "Death Race For Love",
     artist: "Juice WRLD",
-    amountSongs: "11",
+    time: "3:12",
   },
 ]
 
@@ -73,26 +74,18 @@ const PlaylistsSongs = () => {
 
   return (
     <section id="testimonials">
-      <div className="flex justify-between pr-6 pl-4 mt-4 mb-4 items-center">
+      <div className="flex pr-6 pl-4 mt-4 mb-4 items-center">
         <h2 css={styles.fontColor} className="font-extrabold">
           New Releases
         </h2>
-        <a className="font-extralight" css={styles.viewAll} href="/newreleases">
-          View All
-        </a>
       </div>
 
-      {data.map(({ albumCover, artist, albumName, amountSongs }, index) => {
+      {data.map(({ artist, song, time }, index) => {
         return (
           <section css={styles.fontColor} className="flex pl-1" key={index}>
-            <Playbutton />
-            <label className="flex justify-between w-full items-center">
-              <div className="flex-col w-40 ">
-                <h2 className="font-bold text-md pb-1">{albumName}</h2>
-                <p className="font-light text-xs pt-1">{artist}</p>
-              </div>
-              <div className="flex pr-6 font-light text-sm">
-                <p>{amountSongs} Songs</p>
+            <label className="flex justify-between items-center">
+              <div className="flex font-light text-sm">
+                <Song songtitle={song} songtime={time} artist={artist} />
               </div>
             </label>
           </section>
