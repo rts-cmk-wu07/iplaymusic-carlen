@@ -12,6 +12,7 @@ import EventFeed from "./pages/EventFeed"
 import Home from "./pages/Home"
 import Playlists from "./pages/Playlists"
 import AlbumDetails from "./pages/AlbumDetails"
+import Featured from "./templates/Featured"
 
 function App() {
   const { light, dark } = vars
@@ -35,6 +36,7 @@ function App() {
               <Route path="/catagory" element={<Catagory />}>
                 {" "}
               </Route>
+              <Route path="/featured" element={<Featured />} />
               <Route path="/allalbums" element={<AllAlbums />} />
               <Route path="/playlists" element={<Playlists />} />
             </Route>
