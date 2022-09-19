@@ -7,11 +7,11 @@ const Song = ({ songtitle, songtime, artist }) => {
               "
       />
       <div className="flex justify-between w-72 items-center">
-        <div className="flex-col w-40">
-          <span>{songtitle}</span>
+        <div className="flex flex-col w-40 pl-4">
+          <span className="font-semibold">{songtitle}</span>
           <span>{artist}</span>
         </div>
-        <div className="flex pr-6 font-light text-sm">
+        <div className="flex pr-2 font-light text-sm">
           <span>{songtime}</span>
         </div>
       </div>
