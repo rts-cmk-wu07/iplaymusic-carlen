@@ -15,11 +15,11 @@ const Player = () => {
   const musicTracks = [
     {
       name: "name",
-      src: "https://github.com/cookieman2002/iplay-music-mp3/blob/main/Cantina%20Band.mp3?=raw",
+      src: "https://github.com/cookieman2002/iplay-music-mp3/blob/main/Cantina%20Band.mp3?raw=true",
     },
     {
       name: "Mystery",
-      src: "http://github.com/cookieman2002/iplay-music-mp3/blob/main/bensound-memories.mp3?=raw",
+      src: "http://github.com/cookieman2002/iplay-music-mp3/blob/main/bensound-memories.mp3?raw=true",
     },
   ];
 
@@ -73,6 +73,8 @@ const Player = () => {
           </div>
         </div>
       )}
+      <div>
+
       <span onClick={playerHandler}>Extend</span>
       <AudioPlayer
         style={{ background: "linear-gradient(#ee0979, #341931)" }}
@@ -85,7 +87,8 @@ const Player = () => {
         onEnded={handleClickNext}
         showSkipControls={true}
         showJumpControls={false}
-      />
+        />
+        </div>
     </div>
   );
 };
