@@ -28,7 +28,22 @@ const AlbumDetails = ({ amoSongs }) => {
       </div>
       <section className="p-3">
         <h3>All songs</h3>
-        <div className="flex w-full">
+        <div className="flex flex-col w-full">
+          <Song
+            songtitle="Country road"
+            songtime="3:24"
+            artist="Billy Ray Cyrus"
+          />
+          <Song
+            songtitle="Country road"
+            songtime="3:24"
+            artist="Billy Ray Cyrus"
+          />
+          <Song
+            songtitle="Country road"
+            songtime="3:24"
+            artist="Billy Ray Cyrus"
+          />
           <Song
             songtitle="Country road"
             songtime="3:24"
