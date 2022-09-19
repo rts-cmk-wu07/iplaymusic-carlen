@@ -1,11 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import IonIcon from "@reacticons/ionicons";
 import { useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 
+
 const Player = () => {
+  const [isPlaying, setIsPlaying] = useState(false)
   const musicTracks = [
     {
       name: "Mystery",
@@ -46,8 +49,15 @@ const Player = () => {
       }
     `,
   };
+  function playerHandler() {
+    setIsPlaying(!isPlaying)
+    console.log(isPlaying)
+  }
   return (
-    <div css={styles.audioplayer}>
+    <div css={styles.audioplayer} onClick={playerHandler}>
+      {isPlaying && (<div className="absolute z-10 bg-gradient-to-r top-0 from-gradient-100 to-gradient-200 w-screen h-screen">
+      <IonIcon name="close" onClick={() => playerHandler(!isPlaying)}/>
+      </div>)}
       <AudioPlayer
         style={{background: "linear-gradient(#ee0979, #341931)" }}
         autoPlay={false}
