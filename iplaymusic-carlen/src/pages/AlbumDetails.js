@@ -12,6 +12,7 @@ const AlbumDetails = ({ amoSongs }) => {
     bgImage: css`
       padding: 12px;
       background: url(http://placekitten.com/351/300);
+      height: 300px;
     `,
   };
   return (
