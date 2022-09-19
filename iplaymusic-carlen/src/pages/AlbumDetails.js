@@ -6,7 +6,8 @@ import ColorContext from "../context/colorContext";
 import TagsRender from "../comp/sub-comp/TagsRender";
 import Heading from "../comp/sub-comp/Heading";
 import Song from "../comp/Song";
-const AlbumDetails = ({ amoSongs }) => {
+const AlbumDetails = () => {
+  const amoSongs = 12;
   const colors = useContext(ColorContext);
   const styles = {
     bgImage: css`
@@ -14,20 +15,23 @@ const AlbumDetails = ({ amoSongs }) => {
       background: url(http://placekitten.com/351/300);
       height: 300px;
     `,
+    theme: css`
+      color: ${colors.text};
+    `,
   };
   return (
     <div>
       <div css={styles.bgImage}>
         <Heading text="Old time road" color="white" />
-        <p>{amoSongs}</p>
-        <span>genres hashtags</span>
+        <p className="text-white">{amoSongs} Songs</p>
+        <span className="text-white">genres hashtags</span>
         <div className="flex ">
           <TagsRender tagText="country" containerTag />
           <TagsRender tagText="country road" containerTag />
         </div>
       </div>
       <section className="p-3">
-        <h3>All songs</h3>
+        <h3 css={styles.theme}>All songs</h3>
         <div className="flex flex-col w-full">
           <Song
             songtitle="Country road"

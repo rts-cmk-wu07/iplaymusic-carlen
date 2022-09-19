@@ -10,9 +10,10 @@ const BackBtn = () => {
       stroke: black;
     `,
   };
+
   return (
-    <button css={styles.icon} onClick={() => console.log("Noget")}>
-      <IonIcon name="chevron-back-circle " size="large" css={styles.icon} />
+    <button css={styles.icon}>
+      <IonIcon name="arrow-back" size="large" />
     </button>
   );
 };

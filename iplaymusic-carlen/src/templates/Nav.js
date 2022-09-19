@@ -25,11 +25,8 @@ const Nav = ({ top }) => {
   return (
     <div>
       {top ? (
-        <div css={styles.bg} className="flex justify-between">
+        <div css={styles.bg} className="flex items-center justify-between">
           <BackBtn />
-          {location.pathname !== "/" ? (
-            <h1 css={styles.textColor}>{location.pathname}</h1>
-          ) : null}
           <div>Search</div>
         </div>
       ) : (
