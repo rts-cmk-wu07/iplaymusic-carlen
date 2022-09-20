@@ -1,7 +1,7 @@
 const PlaylistsHeader = () => {
   return (
     <svg
-      className="z-50 fixed top-0 h-full"
+      className="z-20 fixed top-0 h-full"
       width="450"
       height="280"
       viewBox="0 0 450"
