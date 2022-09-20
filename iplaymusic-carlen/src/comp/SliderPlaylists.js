@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import PlaylistsHeader from "./sub-comp/PlaylistsHeader";
 
 const data = [
   {
@@ -61,7 +62,8 @@ const SliderPlaylists = () => {
   };
 
   return (
-    <section id="testimonials">
+    <section className="relative z-10" id="testimonials">
+      <PlaylistsHeader />
       <div className="pl-24">
         <Swiper
           // install Swiper modules
