@@ -1,24 +1,31 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import PlaylistsSongs from "../comp/PlaylistsSongs";
-import SliderAlbums from "../comp/SliderAlbums";
+import SliderPlaylists from "../comp/SliderPlaylists";
 import Heading from "../comp/sub-comp/Heading";
 
 export default function Playlists() {
   const styles = {
-    bgImage: css`
-      padding: 12px;
-      background: url(http://placekitten.com/351/300);
-      height: 300px;
-    `,
-    theme: css`
-      color: ${colors.text};
+    bgClipPath: css`
+      background: orange;
+
+      z-index: -10;
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 70%,
+        72% 66%,
+        58% 74%,
+        31% 78%,
+        14% 70%,
+        0 61%
+      );
     `,
   };
   return (
     <div>
       <Heading className="mb-3" text="Playlists"></Heading>
-      <SliderAlbums css={styles.bgImage} />
+      <SliderPlaylists />
       <PlaylistsSongs />
     </div>
   );

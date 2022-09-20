@@ -17,31 +17,39 @@ import "swiper/css/pagination";
 const data = [
   {
     albumCover: AVTR1,
+    genre: "Top 50 Rock Ballads",
   },
   {
     albumCover: AVTR2,
+    genre: "Top 50 Rock Ballads",
   },
   {
     albumCover: AVTR3,
+    genre: "Top 50 Rock Ballads",
   },
   {
     albumCover: AVTR4,
+    genre: "Top 50 Rock Ballads",
   },
   {
     albumCover: AVTR1,
+    genre: "Top 50 Rock Ballads",
   },
   {
     albumCover: AVTR2,
+    genre: "Top 50 Rock Ballads",
   },
   {
     albumCover: AVTR3,
+    genre: "Top 50 Rock Ballads",
   },
   {
     albumCover: AVTR4,
+    genre: "Top 50 Rock Ballads",
   },
 ];
 
-const SliderAlbums = () => {
+const SliderPlaylists = () => {
   const colors = useContext(ColorContext);
   const styles = {
     viewAll: css`
@@ -53,7 +61,7 @@ const SliderAlbums = () => {
   };
 
   return (
-    <section className="relative" id="testimonials">
+    <section id="testimonials">
       <div className="flex justify-between pr-6 pl-4 mt-4 ">
         <h2 css={styles.fontColor} className="font-extrabold">
           Featured Albums
@@ -66,30 +74,33 @@ const SliderAlbums = () => {
           View All
         </a>
       </div>
-
-      <Swiper
-        className=""
-        // install Swiper modules
-        modules={[Navigation]}
-        spaceBetween={40}
-        slidesPerView={3}
-        navigation
-      >
-        {data.map(({ albumCover }, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <div
-                className="w-32 
+      <div className="pl-20">
+        <Swiper
+          // install Swiper modules
+          modules={[Navigation]}
+          spaceBetween={20}
+          slidesPerView={1.2}
+          navigation
+        >
+          {data.map(({ albumCover, genre }, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div
+                  className="w-32 
               overflow-hidden m-4 rounded-xl shadow-lg"
-              >
-                <img alt="Album Cover" src={albumCover} />
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+                >
+                  <img alt="Album Cover" src={albumCover} />
+                </div>
+                <h2 css={styles.fontColor} className="font-extrabold">
+                  {genre}
+                </h2>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
     </section>
   );
 };
 
-export default SliderAlbums;
+export default SliderPlaylists;
