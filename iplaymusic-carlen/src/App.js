@@ -8,6 +8,7 @@ import Playbutton from "./comp/sub-comp/Playbutton";
 import Catagory from "./pages/Catagory";
 import HandleColorChange from "./context/handleColorChange";
 import AllAlbums from "./pages/AllAlbums";
+import AllArtists from "./pages/AllArtists";
 import EventFeed from "./pages/EventFeed";
 import Home from "./pages/Home";
 import Playlists from "./pages/Playlists";
@@ -38,6 +39,7 @@ function App() {
               </Route>
               <Route path="/featured" element={<Featured />} />
               <Route path="/allalbums" element={<AllAlbums />} />
+              <Route path="/allartists" element={<AllArtists />} />
               <Route path="/playlists" element={<Playlists />} />
             </Route>
           </Routes>
