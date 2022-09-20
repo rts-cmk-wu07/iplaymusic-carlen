@@ -62,19 +62,7 @@ const SliderPlaylists = () => {
 
   return (
     <section id="testimonials">
-      <div className="flex justify-between pr-6 pl-4 mt-4 ">
-        <h2 css={styles.fontColor} className="font-extrabold">
-          Featured Albums
-        </h2>
-        <a
-          className="font-extralight"
-          css={styles.viewAll}
-          href="/featuredalbums"
-        >
-          View All
-        </a>
-      </div>
-      <div className="pl-20">
+      <div className="pl-24">
         <Swiper
           // install Swiper modules
           modules={[Navigation]}
