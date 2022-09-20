@@ -7,6 +7,7 @@ export default function Playlists() {
   return (
     <div>
       <Heading className="mb-3" text="Playlists"></Heading>
+      <PlaylistsHeader />
       <SliderPlaylists />
       <PlaylistsSongs />
     </div>

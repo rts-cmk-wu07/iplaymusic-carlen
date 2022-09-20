@@ -1,11 +1,6 @@
 const PlaylistsHeader = () => {
   return (
-    <svg
-      className="z-20 fixed top-0 h-full"
-      width="450"
-      height="280"
-      viewBox="0 0 450"
-    >
+    <svg className="fixed top-0" width="450" height="280" viewBox="0 0 ">
       <defs>
         <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1">
           <stop offset="0" stopColor="#ee0979" />
