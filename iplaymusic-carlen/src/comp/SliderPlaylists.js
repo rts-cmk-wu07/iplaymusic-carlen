@@ -1,18 +1,18 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import AVTR1 from "./assets/avatar1.jpg";
-import AVTR2 from "./assets/avatar2.jpg";
-import AVTR3 from "./assets/avatar3.jpg";
-import AVTR4 from "./assets/avatar4.jpg";
+import { css } from "@emotion/react"
+import AVTR1 from "./assets/avatar1.jpg"
+import AVTR2 from "./assets/avatar2.jpg"
+import AVTR3 from "./assets/avatar3.jpg"
+import AVTR4 from "./assets/avatar4.jpg"
 
-import { useContext } from "react";
-import ColorContext from "../context/colorContext";
+import { useContext } from "react"
+import ColorContext from "../context/colorContext"
 // import Swiper core and required modules
-import { Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react"
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css"
+import "swiper/css/pagination"
 
 const data = [
   {
@@ -47,10 +47,10 @@ const data = [
     albumCover: AVTR4,
     genre: "Top 50 Rock Ballads",
   },
-];
+]
 
 const SliderPlaylists = () => {
-  const colors = useContext(ColorContext);
+  const colors = useContext(ColorContext)
   const styles = {
     viewAll: css`
       color: ${colors.primary};
@@ -58,10 +58,10 @@ const SliderPlaylists = () => {
     fontColor: css`
       color: ${colors.text};
     `,
-  };
+  }
 
   return (
-    <section className="" id="testimonials">
+    <section className="" id="">
       <div className="pl-24">
         <Swiper
           // install Swiper modules
@@ -83,12 +83,12 @@ const SliderPlaylists = () => {
                   {genre}
                 </h2>
               </SwiperSlide>
-            );
+            )
           })}
         </Swiper>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default SliderPlaylists;
+export default SliderPlaylists
