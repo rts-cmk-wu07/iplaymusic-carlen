@@ -19,13 +19,13 @@
   .rhap_header {
     margin-bottom: 10px;
     z-index: 2000;
-    color:white;
+    color:green;
   }
   
   .rhap_footer {
     margin-top: 5px;
     z-index:2000;
-    color:white;
+    color:green;
 }
   
   .rhap_main {
@@ -119,12 +119,12 @@
 }
 .rhap_current-time {
   width:40px;
-  color:white;
+  color:green;
  
   
 }
 .rhap_total-time{
-    color:white;
+    color:green;
 }
   
   .rhap_progress-indicator {

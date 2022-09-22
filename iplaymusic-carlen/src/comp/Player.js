@@ -2,7 +2,6 @@
 import { css } from "@emotion/react";
 import IonIcon from "@reacticons/ionicons";
 import { useState } from "react";
-import ReactAudioPlayer from "react-audio-player";
 import AudioPlayer from "react-h5-audio-player";
 import "./Player.css";
 import { useContext } from "react";
@@ -44,14 +43,20 @@ const Player = () => {
         border-radius: 0px;
       }
       & audio::-webkit-media-controls-panel {
-        background-color: red;
+        
         border-radius: 0px;
         width: 100%;
       }
     `,
-    
+    overlay: css`
+    background-color: ${colors.bg};
+    `, 
+    overlaytext: css`
+    color: ${colors.text};
+    `
     
   };
+    
   function playerHandler() {
     setIsPlaying(!isPlaying);
     console.log(isPlaying);
@@ -63,9 +68,9 @@ const Player = () => {
     >
       <span onClick={playerHandler}>Extend</span>
 
-      <div className={`${isPlaying ? "h-full " : null}`}>
-        <div className={`${isPlaying ? "h-screen absolute w-screen top-0 flex justify-center flex-col bg-primary-300 items-center ": "hidden" } `}>
-        <IonIcon name="close" className="text-white text-3xl top-0 left-0 absolute" onClick={() => playerHandler(!isPlaying)} />
+      <div css={styles.overlaytext} className={`${isPlaying ? "h-full " : null}`}>
+        <div css={styles.overlay} className={`${isPlaying ? "h-screen absolute w-screen top-0 flex justify-center flex-col items-center ": "hidden" } `}>
+        <IonIcon name="close" className=" text-3xl top-0 left-0 absolute" onClick={() => playerHandler(!isPlaying)} />
         <img src="https://cdn.britannica.com/84/206384-050-00698723/Javan-gliding-tree-frog.jpg" className="rounded-full h-32 w-32 " alt="" />
         </div>
         <div>
