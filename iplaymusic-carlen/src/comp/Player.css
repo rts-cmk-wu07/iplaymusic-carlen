@@ -26,6 +26,7 @@
     margin-top: 5px;
     z-index:2000;
     color:green;
+    font-size: small;
 }
   
   .rhap_main {
@@ -160,6 +161,7 @@
     color: #868686;
     margin-right: 6px;
     z-index: 2000;
+    display: none;
   }
   
   .rhap_main-controls {
@@ -185,7 +187,7 @@
   }
   
   .rhap_volume-controls {
-    display: flex;
+    display: none;
     flex: 1 0 auto;
     justify-content: flex-end;
     align-items: center;

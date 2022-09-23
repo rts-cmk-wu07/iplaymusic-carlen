@@ -14,13 +14,15 @@ const Player = () => {
     {
       name: "name",
       src: "https://github.com/cookieman2002/iplay-music-mp3/blob/main/Cantina%20Band.mp3?raw=true",
-      creator: "adele"
+      creator: "adele",
+      image: "https://c-fa.cdn.smule.com/rs-s80/arr/fa/94/0c221ed5-f8ce-43d9-abe0-01ea331e81d5_1024.jpg"
     },
 
     {
       name: "Mystery",
       src: "http://github.com/cookieman2002/iplay-music-mp3/blob/main/bensound-memories.mp3?raw=true",
-      creator: "master oogway"
+      creator: "master oogway",
+      image: "https://cdn.britannica.com/84/206384-050-00698723/Javan-gliding-tree-frog.jpg"
     },
   ];
 
@@ -47,6 +49,9 @@ const Player = () => {
         border-radius: 0px;
         width: 100%;
       }
+      & span {
+        background-color: none;
+      }
     `,
     overlay: css`
     background-color: ${colors.bg};
@@ -66,16 +71,19 @@ const Player = () => {
       css={styles.audioplayer}
       className="flex justify-center flex-col items-center"
     >
-      <span onClick={playerHandler}>Extend</span>
+      <span className="bg-none">
+      <IonIcon onClick={playerHandler} name="chevron-up-outline" />
+      </span>
 
       <div css={styles.overlaytext} className={`${isPlaying ? "h-full " : null}`}>
         <div css={styles.overlay} className={`${isPlaying ? "h-screen absolute w-screen top-0 flex justify-center flex-col items-center ": "hidden" } `}>
-        <IonIcon name="close" className=" text-3xl top-0 left-0 absolute" onClick={() => playerHandler(!isPlaying)} />
-        <img src="https://cdn.britannica.com/84/206384-050-00698723/Javan-gliding-tree-frog.jpg" className="rounded-full h-32 w-32 " alt="" />
+        <IonIcon name="close" className=" text-3xl top-0 left-0 absolute " onClick={() => playerHandler(!isPlaying)} />
+        <img src={musicTracks[isTracking].image} className="motion-safe:animate-spin rounded-full h-64 w-64 " alt="" />
         </div>
         <div>
 
         <AudioPlayer
+        className={`${isPlaying ? "mb-11" : "" }`}
           style={{
             background: "linear-gradient(#ee0979, #341931)",
             width: "100vw"    
