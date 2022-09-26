@@ -1,18 +1,18 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react"
-import AVTR1 from "./assets/avatar1.jpg"
-import AVTR2 from "./assets/avatar2.jpg"
-import AVTR3 from "./assets/avatar3.jpg"
-import AVTR4 from "./assets/avatar4.jpg"
+import { css } from "@emotion/react";
+import AVTR1 from "./assets/avatar1.jpg";
+import AVTR2 from "./assets/avatar2.jpg";
+import AVTR3 from "./assets/avatar3.jpg";
+import AVTR4 from "./assets/avatar4.jpg";
 
-import { useContext } from "react"
-import ColorContext from "../context/colorContext"
+import { useContext } from "react";
+import ColorContext from "../context/colorContext";
 // import Swiper core and required modules
-import { Navigation } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
-import "swiper/css"
-import "swiper/css/pagination"
+import "swiper/css";
+import "swiper/css/pagination";
 
 const data = [
   {
@@ -39,10 +39,10 @@ const data = [
   {
     albumCover: AVTR4,
   },
-]
+];
 
 const SliderAlbums = () => {
-  const colors = useContext(ColorContext)
+  const colors = useContext(ColorContext);
   const styles = {
     viewAll: css`
       color: ${colors.primary};
@@ -50,10 +50,10 @@ const SliderAlbums = () => {
     fontColor: css`
       color: ${colors.text};
     `,
-  }
+  };
 
   return (
-    <section id="testimonials">
+    <section className="relative" id="testimonials">
       <div className="flex justify-between pr-6 pl-4 mt-4 ">
         <h2 css={styles.fontColor} className="font-extrabold">
           Featured Albums
@@ -85,11 +85,11 @@ const SliderAlbums = () => {
                 <img alt="Album Cover" src={albumCover} />
               </div>
             </SwiperSlide>
-          )
+          );
         })}
       </Swiper>
     </section>
-  )
-}
+  );
+};
 
-export default SliderAlbums
+export default SliderAlbums;

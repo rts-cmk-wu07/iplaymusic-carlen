@@ -15,7 +15,7 @@ const Layout = () => {
   return (
     <div className="h-screen flex flex-col justify-between">
       <Nav top={true} />
-      <div css={styles.bg} className="h-screen overflow-auto p-3">
+      <div css={styles.bg} className="h-screen overflow-auto">
         <Outlet />
       </div>
       <Player/>

@@ -1,7 +1,10 @@
+import Input from "../comp/sub-comp/Input";
+
 const Login = () => {
   return (
     <div>
-      <div></div>
+      <Input type="text" typeName="usernameInput" />
+      <Input type="password" typeName="userPasswordInput" />
     </div>
   );
 };

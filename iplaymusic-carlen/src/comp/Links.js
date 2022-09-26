@@ -1,20 +1,18 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import { useContext } from "react";
-import ColorContext from "../context/colorContext";
-
 import { NavLink } from "react-router-dom";
 
-const Links = ({ link, linkText }) => {
-  // const colors = useContext(ColorContext)
-  // const styles = {
-  //   link: css`
-
-  //   `
-  // }
+const Links = ({ link, linkText, color }) => {
   return (
     <NavLink
-      className="flex p-3 rounded-lg mb-3 bg-catColor-100 text-white"
+      className={`flex p-3 rounded-lg mb-3 text-white
+          ${
+            color === "blue"
+              ? "bg-catColor-100"
+              : color === "green"
+              ? "bg-catColor-400"
+              : color === "red"
+              ? "bg-catColor-800"
+              : "bg-catColor-100"
+          }`}
       to={link}
     >
       {linkText}

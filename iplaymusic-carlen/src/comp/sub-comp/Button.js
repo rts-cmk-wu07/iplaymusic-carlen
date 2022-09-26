@@ -4,7 +4,7 @@ import IonIcon from "@reacticons/ionicons";
 import { useContext } from "react";
 import ColorContext from "../../context/colorContext";
 
-const Button = ({ onClick, icon, main, size }) => {
+const Button = ({ onClick, icon, size }) => {
   const colors = useContext(ColorContext);
 
   const styles = {
