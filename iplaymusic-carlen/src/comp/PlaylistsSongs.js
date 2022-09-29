@@ -1,14 +1,16 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import AVTR1 from "./assets/avatar1.jpg";
-import AVTR2 from "./assets/avatar2.jpg";
-import AVTR3 from "./assets/avatar3.jpg";
-import AVTR4 from "./assets/avatar4.jpg";
+import { css } from "@emotion/react"
+import AVTR1 from "./assets/avatar1.jpg"
+import AVTR2 from "./assets/avatar2.jpg"
+import AVTR3 from "./assets/avatar3.jpg"
+import AVTR4 from "./assets/avatar4.jpg"
 
-import { useContext } from "react";
-import ColorContext from "../context/colorContext";
+import { useContext, useEffect } from "react"
+import { useStateProvider } from "../utils/StateProvider"
+import { reducerCases } from "../utils/Constants"
+import ColorContext from "../context/colorContext"
 
-import Song from "./Song";
+import Song from "./Song"
 
 const data = [
   {
@@ -59,10 +61,10 @@ const data = [
     artist: "Juice WRLD",
     time: "3:12",
   },
-];
+]
 
 const PlaylistsSongs = () => {
-  const colors = useContext(ColorContext);
+  const colors = useContext(ColorContext)
   const styles = {
     viewAll: css`
       color: ${colors.primary};
@@ -70,7 +72,7 @@ const PlaylistsSongs = () => {
     fontColor: css`
       color: ${colors.text};
     `,
-  };
+  }
 
   return (
     <section id="testimonials">
@@ -89,10 +91,10 @@ const PlaylistsSongs = () => {
               </div>
             </label>
           </section>
-        );
+        )
       })}
     </section>
-  );
-};
+  )
+}
 
-export default PlaylistsSongs;
+export default PlaylistsSongs
