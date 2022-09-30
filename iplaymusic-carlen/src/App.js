@@ -1,10 +1,10 @@
 import { vars } from "./vars"
 import { useState } from "react"
 import ColorContext from "./context/colorContext"
-import CatagoryDropdown from "./comp/Catagorydropdown"
+
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Layout from "./templates/Layout"
-import Playbutton from "./comp/sub-comp/Playbutton"
+
 import Catagory from "./pages/Catagory"
 import HandleColorChange from "./context/handleColorChange"
 import AllAlbums from "./pages/AllAlbums"
@@ -12,8 +12,10 @@ import AllArtists from "./pages/AllArtists"
 import EventFeed from "./pages/EventFeed"
 import Home from "./pages/Home"
 import Playlists from "./pages/Playlists"
-import AlbumDetails from "./pages/AlbumDetails"
+
 import Featured from "./templates/Featured"
+import TokenContext from "./context/TokenContext"
+import Login from "./templates/Login"
 
 function App() {
   const { light, dark } = vars
@@ -26,26 +28,30 @@ function App() {
     }
   }
   const colors = theme
+  const [token, setToken] = useState("")
+
   return (
-    <HandleColorChange.Provider value={handleThemeChange}>
-      <ColorContext.Provider value={colors}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="/eventfeed" element={<EventFeed />} />
-              <Route path="/catagory" element={<Catagory />}>
-                {" "}
+    <TokenContext.Provider value={{ token, setToken }}>
+      <HandleColorChange.Provider value={handleThemeChange}>
+        <ColorContext.Provider value={colors}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={!token ? <Login /> : <Layout />}>
+                <Route index element={<Home />} />
+                <Route path="/eventfeed" element={<EventFeed />} />
+                <Route path="/catagory" element={<Catagory />}>
+                  {" "}
+                </Route>
+                <Route path="/featured" element={<Featured />} />
+                <Route path="/allalbums" element={<AllAlbums />} />
+                <Route path="/allartists" element={<AllArtists />} />
+                <Route path="/playlists" element={<Playlists />} />
               </Route>
-              <Route path="/featured" element={<Featured />} />
-              <Route path="/allalbums" element={<AllAlbums />} />
-              <Route path="/allartists" element={<AllArtists />} />
-              <Route path="/playlists" element={<Playlists />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </ColorContext.Provider>
-    </HandleColorChange.Provider>
+            </Routes>
+          </BrowserRouter>
+        </ColorContext.Provider>
+      </HandleColorChange.Provider>
+    </TokenContext.Provider>
   )
 }
 
