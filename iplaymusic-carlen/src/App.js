@@ -1,8 +1,10 @@
-import { vars } from "./vars";
-import { useState } from "react";
-import ColorContext from "./context/colorContext";
-
+import { useState, useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import TokenContext from "./context/TokenContext";
+import ColorContext from "./context/colorContext";
+import { vars } from "./vars";
+
 import Layout from "./templates/Layout";
 
 import Catagory from "./pages/Catagory";
@@ -12,10 +14,10 @@ import AllArtists from "./pages/AllArtists";
 import EventFeed from "./pages/EventFeed";
 import Home from "./pages/Home";
 import Playlists from "./pages/Playlists";
-
 import Featured from "./templates/Featured";
-import tokenContext from "./context/tokenContext";
 import Login from "./templates/Login";
+import Callback from "./pages/Callback";
+import NotFound from "./pages/NotFound";
 
 function App() {
 	const { light, dark } = vars;
@@ -28,17 +30,18 @@ function App() {
 		}
 	};
 	const colors = theme;
-	const [token, setToken] = useState("");
+
+	const { tokenData } = useContext(TokenContext);
 
 	return (
-		<tokenContext.Provider value={{ token, setToken }}>
-			<HandleColorChange.Provider value={handleThemeChange}>
-				<ColorContext.Provider value={colors}>
-					<BrowserRouter>
-						<Routes>
+		<HandleColorChange.Provider value={handleThemeChange}>
+			<ColorContext.Provider value={colors}>
+				<BrowserRouter>
+					<Routes>
+						{tokenData > 0 ? (
 							<Route
 								path="/"
-								element={!token ? <Login /> : <Layout />}>
+								element={<Layout />}>
 								<Route
 									index
 									element={<Home />}
@@ -69,11 +72,26 @@ function App() {
 									element={<Playlists />}
 								/>
 							</Route>
-						</Routes>
-					</BrowserRouter>
-				</ColorContext.Provider>
-			</HandleColorChange.Provider>
-		</tokenContext.Provider>
+						) : (
+							<>
+								<Route
+									index
+									element={<Login />}
+								/>
+								<Route
+									path="/callback"
+									element={<Callback />}
+								/>
+								<Route
+									path="*"
+									element={<NotFound />}
+								/>
+							</>
+						)}
+					</Routes>
+				</BrowserRouter>
+			</ColorContext.Provider>
+		</HandleColorChange.Provider>
 	);
 }
 

@@ -1,33 +1,22 @@
-import { useEffect, useState } from "react";
+import querystring from "querystring";
 
 const Login = () => {
-	const CLIENT_ID = "160368485e05486f9e10b1ce62fd6616";
-	const REDIRECT_URI = "http://localhost:3000/";
-	const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize/";
-	const RESPONSE_TYPE = "token";
+	var parameters = querystring.stringify({
+		response_type: "code",
+		client_id: "160368485e05486f9e10b1ce62fd6616",
+		scope:
+			"user-read-private user-read-email user-library-read user-library-modify user-top-read user-follow-read user-read-recently-played user-read-currently-playing user-read-playback-state user-modify-playback-state user-read-playback-position ",
+		REDIRECT_URI:
+			process.env.NODE_ENV === "development"
+				? "http://localhost:3000/callback"
+				: "http://192.168.0.123:3000/callback",
 
-	const [token, setToken] = useState("");
-
-	useEffect(() => {
-		const hash = window.location.hash;
-		let token = window.localStorage.getItem("token");
-
-		if (!token && hash) {
-			token = hash
-				.substring(1)
-				.split("&")
-				.find((elem) => elem.startsWith("acces_token"))
-				.split("=")[1];
-
-			window.location.hash = "";
-			window.localStorage.setItem("token", token);
-		}
-		setToken(token);
-	}, []);
+		state: "34fFs29kd09235235235235235236734sadasada123421",
+	});
+	console.log(parameters);
 	return (
 		<div>
-			<a
-				href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>
+			<a href={`https://accounts.spotify.com/authorize?${parameters}`}>
 				Login to spotify
 			</a>
 		</div>
