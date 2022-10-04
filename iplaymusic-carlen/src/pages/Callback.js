@@ -1,17 +1,16 @@
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { setCookie } from "react-use-cookie";
 import TokenContext from "../context/TokenContext";
 
 export default function Callback() {
 	const navigate = useNavigate();
 
 	const [searchParams] = useSearchParams();
-	const code = searchParams.get("code");
-	const state = searchParams.get("state");
+	var code = searchParams.get("code");
+	var state = searchParams.get("state");
 
-	const setTokenData = useContext(TokenContext);
+	var setTokenData = useContext(TokenContext)[1];
 	useEffect(() => {
 		axios
 			.post(
@@ -22,17 +21,10 @@ export default function Callback() {
 				})
 			)
 			.then((response) => {
-				const resData = {
-					accessToken: response.data.access_token,
-					refreshToken: response.data.refresh_token,
-					expiratedDate: new Date().getTime() + response.data.expires_in * 1000,
-				};
-				setTokenData(resData);
-
-				setCookie("tokenData", JSON.stringify(resData));
+				setTokenData(response.data);
 				navigate("/");
 			});
-	});
+	}, [setTokenData, code, state, navigate]);
 
 	return <div>...</div>;
 }
