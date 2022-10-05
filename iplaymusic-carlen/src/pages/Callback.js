@@ -4,27 +4,30 @@ import { useContext, useEffect } from "react";
 import TokenContext from "../context/TokenContext";
 
 export default function Callback() {
+	var setTokenData = useContext(TokenContext)[1];
 	const navigate = useNavigate();
 
 	const [searchParams] = useSearchParams();
 	var code = searchParams.get("code");
 	var state = searchParams.get("state");
 
-	var setTokenData = useContext(TokenContext)[1];
-	useEffect(() => {
-		axios
-			.post(
-				"/.netlify/functions/token",
-				JSON.stringify({
-					code,
-					state,
-				})
-			)
-			.then((response) => {
-				setTokenData(response.data);
-				navigate("/");
-			});
-	}, [setTokenData, code, state, navigate]);
+	useEffect(
+		function () {
+			axios
+				.post(
+					"/.netlify/functions/token",
+					JSON.stringify({
+						code,
+						state,
+					})
+				)
+				.then((response) => {
+					setTokenData(response.data);
+					navigate("/");
+				});
+		},
+		[setTokenData, code, state]
+	);
 
-	return <div>...</div>;
+	return null;
 }
