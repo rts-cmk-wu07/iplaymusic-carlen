@@ -31,6 +31,7 @@ function App() {
 	};
 	const colors = theme;
 	var tokenState = useState(null);
+	console.log("tokenState", tokenState);
 	return (
 		<HandleColorChange.Provider value={handleThemeChange}>
 			<ColorContext.Provider value={colors}>
