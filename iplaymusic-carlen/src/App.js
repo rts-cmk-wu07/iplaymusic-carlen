@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { Route, Routes } from "react-router-dom"
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import TokenContext from "./context/TokenContext"
 import ColorContext from "./context/colorContext"
@@ -20,52 +20,85 @@ import Callback from "./pages/Callback"
 import NotFound from "./pages/NotFound"
 
 function App() {
-  const { light, dark } = vars
-  const [theme, setTheme] = useState(light)
-  const handleThemeChange = () => {
-    if (theme === light) {
-      setTheme(dark)
-    } else {
-      setTheme(light)
-    }
-  }
-  const colors = theme
-  var tokenState = useState(null)
-  console.log("tokenState", tokenState)
-  return (
-    <HandleColorChange.Provider value={handleThemeChange}>
-      <ColorContext.Provider value={colors}>
-        <TokenContext.Provider value={tokenState}>
-          <div>
-            <Routes>
-              {(function () {
-                if (tokenState[0]?.access_token) {
-                  return (
-                    <>
-                      <Route path="/" element={<Layout />}>
-                        <Route index element={<Home />} />
-                        <Route path="/eventfeed" element={<EventFeed />} />
-                        <Route path="/catagory" element={<Catagory />}>
-                          {" "}
-                        </Route>
-                        <Route path="/featured" element={<Featured />} />
-                        <Route path="/allalbums" element={<AllAlbums />} />
-                        <Route path="/allartists" element={<AllArtists />} />
-                        <Route path="/playlists" element={<Playlists />} />
-                      </Route>
-                    </>
-                  )
-                }
-              })()}
-              <Route default path="/" element={<Login />} />
-              <Route path="/callback" element={<Callback />} />
-              <Route path="" element={<NotFound />} />
-            </Routes>
-          </div>
-        </TokenContext.Provider>
-      </ColorContext.Provider>
-    </HandleColorChange.Provider>
-  )
+	const { light, dark } = vars;
+	const [theme, setTheme] = useState(light);
+	const handleThemeChange = () => {
+		if (theme === light) {
+			setTheme(dark);
+		} else {
+			setTheme(light);
+		}
+	};
+	const colors = theme;
+	var tokenState = useState(null);
+
+	return (
+		<HandleColorChange.Provider value={handleThemeChange}>
+			<ColorContext.Provider value={colors}>
+				<TokenContext.Provider value={tokenState}>
+					<div>
+						<BrowserRouter>
+							<Routes>
+								{(function () {
+									if (tokenState[0]?.access_token) {
+										return (
+											<>
+												<Route
+													path="/"
+													element={<Layout />}>
+													<Route
+														index
+														element={<Home />}
+													/>
+													<Route
+														path="/eventfeed"
+														element={<EventFeed />}
+													/>
+													<Route
+														path="/catagory"
+														element={<Catagory />}>
+														{" "}
+													</Route>
+													<Route
+														path="/featured"
+														element={<Featured />}
+													/>
+													<Route
+														path="/allalbums"
+														element={<AllAlbums />}
+													/>
+													<Route
+														path="/allartists"
+														element={<AllArtists />}
+													/>
+													<Route
+														path="/playlists"
+														element={<Playlists />}
+													/>
+												</Route>
+											</>
+										);
+									}
+								})()}
+								<Route
+									path="/"
+									element={<Login />}
+								/>
+								<Route
+									path="/callback"
+									element={<Callback />}
+								/>
+								<Route
+									path=""
+									element={<NotFound />}
+								/>
+							</Routes>
+						</BrowserRouter>
+					</div>
+				</TokenContext.Provider>
+			</ColorContext.Provider>
+		</HandleColorChange.Provider>
+	);
 }
 
 export default App
