@@ -10,7 +10,7 @@ const Login = () => {
 
 	var parameters = querystring.stringify({
 		response_type: "code",
-		client_id: "160368485e05486f9e10b1ce62fd6616",
+		client_id: "b85facc3edf64b4dbe90078275075248",
 		scope:
 			"user-read-private user-read-email user-library-read user-library-modify user-top-read user-follow-read user-read-recently-played user-read-currently-playing user-read-playback-state user-modify-playback-state user-read-playback-position ",
 		redirect_uri:

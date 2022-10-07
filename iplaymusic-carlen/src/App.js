@@ -89,7 +89,7 @@ function App() {
 									element={<Callback />}
 								/>
 								<Route
-									path="*"
+									path=""
 									element={<NotFound />}
 								/>
 							</Routes>
