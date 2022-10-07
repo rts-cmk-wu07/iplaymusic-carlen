@@ -3,7 +3,7 @@ import Randomizer from "react-randomizer";
 import styled from "styled-components";
 
 const Login = () => {
-	var state = Randomizer.randomNumber(1, 9999999999);
+	var state = Randomizer.randomNumber(1, 999999999);
 	var date = new Date();
 	date = date.setSeconds(date.getSeconds() + 20);
 	document.cookie = `state=${state}; expires=${date}`;
@@ -13,7 +13,7 @@ const Login = () => {
 		client_id: "160368485e05486f9e10b1ce62fd6616",
 		scope:
 			"user-read-private user-read-email user-library-read user-library-modify user-top-read user-follow-read user-read-recently-played user-read-currently-playing user-read-playback-state user-modify-playback-state user-read-playback-position ",
-		REDIRECT_URI:
+		redirect_uri:
 			process.env.NODE_ENV === "production"
 				? process.env.REDIRECT_URI
 				: "http://localhost:8888/callback",

@@ -24,6 +24,7 @@ export default function Callback() {
 				.then((response) => {
 					setTokenData(response.data);
 					navigate("/");
+					console.log(response.data);
 				});
 		},
 		[setTokenData, code, state]
