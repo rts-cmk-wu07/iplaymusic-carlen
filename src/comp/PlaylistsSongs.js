@@ -74,7 +74,7 @@ const PlaylistsSongs = (props) => {
 	useEffect(
 		function () {
 				axios
-					.get("https://api.spotify.com/v1/playlists", {
+					.get("https://api.spotify.com/v1/playlists/{playlist_id}", {
 						headers: {
 							Authorization: "Bearer " + token.access_token,
 						},
