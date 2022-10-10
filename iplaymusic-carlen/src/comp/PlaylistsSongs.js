@@ -73,6 +73,7 @@ const PlaylistsSongs = (props) => {
 	var [tracks, setTracks] = useState([]);
 	useEffect(
 		function () {
+			
 			if (props.id)
 				axios
 					.get("https://api.spotify.com/v1/playlists/" + props.id + "/tracks", {
@@ -84,7 +85,7 @@ const PlaylistsSongs = (props) => {
 					.then((response) => {
 						const data = response.data;
 						setTracks(data);
-						console.log(data);
+						console.log(response);
 					});
 		},
 
