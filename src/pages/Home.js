@@ -1,6 +1,10 @@
 import Links from "../comp/Links";
+// import { useContext } from "react";
+// import TokenContext from "../context/TokenContext";
 
 const Home = () => {
+  // var [token] = useContext(TokenContext);
+  
   return (
     <div>
       <Links color="blue" link="/eventfeed" linkText="Event feed" />
