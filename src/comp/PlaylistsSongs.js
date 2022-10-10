@@ -83,7 +83,7 @@ const PlaylistsSongs = (props) => {
 					.then((response) => {
 						const data = response.data;
 						setTracks(data);
-						console.log(response);
+						console.log(data.items);
 					});
 		},
 
