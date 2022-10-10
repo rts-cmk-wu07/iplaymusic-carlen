@@ -74,7 +74,7 @@ const PlaylistsSongs = (props) => {
 	useEffect(
 		function () {
 				axios
-					.get("https://api.spotify.com/v1/playlists/{3cEYpjA9oz9GiPac4AsH4n}", {
+					.get("https://api.spotify.com/v1/playlists/", {
 						headers: {
 							Authorization: "Bearer " + token.access_token,
 						},
@@ -106,7 +106,7 @@ const PlaylistsSongs = (props) => {
 						css={styles.fontColor}
 						className="flex pl-1">
 						<label className="flex justify-between items-center">
-							{/* <div className="flex font-light text-sm">
+							 <div className="flex font-light text-sm">
 								<Song
 									key={track.id}
 									id={track.id}
@@ -114,7 +114,7 @@ const PlaylistsSongs = (props) => {
 									title={track.name}
 									duration={track.duration_ms}
 								/>
-							</div> */}
+							</div> 
 						</label>
 					</section>
 				);
