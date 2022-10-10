@@ -87,7 +87,7 @@ const PlaylistsSongs = (props) => {
 					});
 		},
 
-		[token, props.id, setTracks]
+		[token, setTracks]
 	);
 
 	return (
@@ -106,7 +106,7 @@ const PlaylistsSongs = (props) => {
 						css={styles.fontColor}
 						className="flex pl-1">
 						<label className="flex justify-between items-center">
-							<div className="flex font-light text-sm">
+							{/* <div className="flex font-light text-sm">
 								<Song
 									key={track.id}
 									id={track.id}
@@ -114,7 +114,7 @@ const PlaylistsSongs = (props) => {
 									title={track.name}
 									duration={track.duration_ms}
 								/>
-							</div>
+							</div> */}
 						</label>
 					</section>
 				);
