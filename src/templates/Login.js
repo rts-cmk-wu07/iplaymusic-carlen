@@ -15,7 +15,7 @@ const Login = () => {
       "user-read-private user-read-email user-library-read user-library-modify user-top-read user-follow-read user-read-recently-played user-read-currently-playing user-read-playback-state user-modify-playback-state user-read-playback-position ",
     redirect_uri:
       process.env.NODE_ENV === "production"
-        ? "https://iplaymusic-carlsikkeshyggested.netlify.app/callback"
+        ? "https://iplaymusic-cmm.netlify.app/callback"
         : "http://localhost:8888/callback",
 
     state,
