@@ -18,6 +18,7 @@ import Featured from "./templates/Featured"
 import Login from "./templates/Login"
 import Callback from "./pages/Callback"
 import NotFound from "./pages/NotFound"
+import AlbumDetails from "./pages/AlbumDetails"
 
 function App() {
 	const { light, dark } = vars;
@@ -67,6 +68,7 @@ function App() {
 														path="/allalbums"
 														element={<AllAlbums />}
 													/>
+													<Route path="/albumdetails/:id" element={<AlbumDetails/>}/>
 													<Route
 														path="/allartists"
 														element={<AllArtists />}
