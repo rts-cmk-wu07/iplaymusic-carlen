@@ -1,16 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import axios from "axios";
 
 import { useContext, useEffect, useState } from "react";
+
 import ColorContext from "../context/colorContext";
-
-
-import axios from "axios";
 import TokenContext from "../context/TokenContext";
 
 import PlaylistsList from "./PlaylistsList";
-
-
 
 const PlaylistsSongs = () => {
 	const colors = useContext(ColorContext);
@@ -52,9 +49,8 @@ const PlaylistsSongs = () => {
 					My Playlists
 				</h2>
 			</div>
-
 			{playlists?.map(( playlist ) => {
-				return (
+				return ( 
 					
 								 <PlaylistsList key={playlist.id} data={playlist}/>
 								)	
