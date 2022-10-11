@@ -1,4 +1,4 @@
-import PlaylistsSongs from "../comp/PlaylistsSongs";
+import PlaylistsSongs from "../comp/Playlists";
 import SliderPlaylists from "../comp/SliderPlaylists";
 import Heading from "../comp/sub-comp/Heading";
 // import PlaylistsHeader from "../comp/sub-comp/PlaylistsHeader";
