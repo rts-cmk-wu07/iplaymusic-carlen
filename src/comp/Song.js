@@ -1,10 +1,13 @@
 import PlayButton from "../comp/sub-comp/Playbutton";
+
+
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useContext } from "react";
 
 import ColorContext from "../context/colorContext";
 const Song = ({ title, artist, duration, id }) => {
+	
 	const colors = useContext(ColorContext);
 	const styles = {
 		theme: css`
@@ -12,11 +15,15 @@ const Song = ({ title, artist, duration, id }) => {
 		`,
 	};
 	return (
-		<div className="flex pl-4 mb-4">
+
+		<div className="flex pl-4 mb-4" 
+		>
+			
 			<PlayButton
 				className="w-20 m-3 
               "
 			/>
+			
 			<div className="flex justify-between w-72 items-center">
 				<div className="flex flex-col w-full ml-3">
 					<span

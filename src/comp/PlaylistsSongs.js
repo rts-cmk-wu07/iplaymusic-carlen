@@ -4,62 +4,15 @@ import { css } from "@emotion/react";
 import { useContext, useEffect, useState } from "react";
 import ColorContext from "../context/colorContext";
 
-import Song from "./Song";
+
 import axios from "axios";
 import TokenContext from "../context/TokenContext";
 
-// const data = [
-// 	{
-// 		albumCover: AVTR1,
-// 		song: "Old Town Road",
-// 		artist: "Billy Ray Cyrus",
-// 		time: "3:58",
-// 	},
-// 	{
-// 		albumCover: AVTR2,
-// 		song: "Victory Lab",
-// 		artist: "Nipsey Hussle",
-// 		time: "2:46",
-// 	},
-// 	{
-// 		albumCover: AVTR3,
-// 		song: "Thank U, Next",
-// 		artist: "Ariana Grande",
-// 		time: "4:12",
-// 	},
-// 	{
-// 		albumCover: AVTR4,
-// 		song: "Death Race For Love",
-// 		artist: "Juice WRLD",
-// 		time: "3:37",
-// 	},
-// 	{
-// 		albumCover: AVTR1,
-// 		song: "Old Town Road",
-// 		artist: "Billy Ray Cyrus",
-// 		time: "3:12",
-// 	},
-// 	{
-// 		albumCover: AVTR2,
-// 		song: "Victory Lab",
-// 		artist: "Nipsey Hussle",
-// 		time: "4:12",
-// 	},
-// 	{
-// 		albumCover: AVTR3,
-// 		song: "Thank U, Next",
-// 		artist: "Ariana Grande",
-// 		time: "3:37",
-// 	},
-// 	{
-// 		albumCover: AVTR4,
-// 		song: "Death Race For Love",
-// 		artist: "Juice WRLD",
-// 		time: "3:12",
-// 	},
-// ];
+import PlaylistsList from "./PlaylistsList";
 
-const PlaylistsSongs = (props) => {
+
+
+const PlaylistsSongs = () => {
 	const colors = useContext(ColorContext);
 	const styles = {
 		viewAll: css`
@@ -70,7 +23,7 @@ const PlaylistsSongs = (props) => {
 		`,
 	};
 	var [token] = useContext(TokenContext);
-	var [tracks, setTracks] = useState([]);
+	var [playlists, setPlaylists] = useState([]);
 	useEffect(
 		function () {
 				axios
@@ -81,13 +34,13 @@ const PlaylistsSongs = (props) => {
 					})
 
 					.then((response) => {
-						const data = response.data;
-						setTracks(data);
-						console.log(response);
+						const data = response.data.items;
+						setPlaylists(data);
+						console.log(data);
 					});
 		},
 
-		[token, setTracks]
+		[token, setPlaylists]
 	);
 
 	return (
@@ -96,28 +49,15 @@ const PlaylistsSongs = (props) => {
 				<h2
 					css={styles.fontColor}
 					className="font-extrabold">
-					New Releases
+					My Playlists
 				</h2>
 			</div>
 
-			{tracks.items?.map(({ track }) => {
+			{playlists?.map(( playlist ) => {
 				return (
-					<section
-						css={styles.fontColor}
-						className="flex pl-1">
-						<label className="flex justify-between items-center">
-							{/* <div className="flex font-light text-sm">
-								<Song
-									key={track.id}
-									id={track.id}
-									artist={track.artists[0].name}
-									title={track.name}
-									duration={track.duration_ms}
-								/>
-							</div> */}
-						</label>
-					</section>
-				);
+					
+								 <PlaylistsList key={playlist.id} data={playlist}/>
+								)	
 			})}
 		</section>
 	);
