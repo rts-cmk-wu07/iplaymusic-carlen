@@ -2,6 +2,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components"
 import ColorContext from "../context/colorContext";
 
@@ -17,7 +18,8 @@ export default function PlaylistsList({data}) {
 		`,
 	};
   return   (
-     <Container>
+    <Link to={`playlistdetails/${data.id}`}>
+     <Container >
         <ul>
           <h3 className="text-center text-lg" css={styles.fontColor}>{data.name}</h3>
           <p className="text-center text-m" css={styles.fontColor}>By: {data.owner.display_name}</p>
@@ -26,6 +28,7 @@ export default function PlaylistsList({data}) {
         <img className="scale-75 rounded-lg -mt-8" src={data.images[0].url} alt="playlist cover" />
       </div> 
     </Container>
+    </Link>
       )
   }
 
