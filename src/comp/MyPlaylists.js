@@ -9,7 +9,7 @@ import TokenContext from "../context/TokenContext";
 
 import PlaylistsList from "./PlaylistsList";
 
-const PlaylistsSongs = () => {
+const MyPlaylists = () => {
 	const colors = useContext(ColorContext);
 	const styles = {
 		viewAll: css`
@@ -33,7 +33,7 @@ const PlaylistsSongs = () => {
 					.then((response) => {
 						const data = response.data.items;
 						setPlaylists(data);
-						console.log(data);
+						
 					});
 		},
 
@@ -50,13 +50,16 @@ const PlaylistsSongs = () => {
 				</h2>
 			</div>
 			{playlists?.map(( playlist ) => {
+				
 				return ( 
-					
-								 <PlaylistsList key={playlist.id} data={playlist}/>
+					<>
+								 <PlaylistsList key={playlist.id} data={playlist}/>	 
+					</>			 
 								)	
 			})}
+			
 		</section>
 	);
 };
 
-export default PlaylistsSongs;
+export default MyPlaylists;
