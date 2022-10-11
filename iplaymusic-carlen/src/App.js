@@ -34,9 +34,7 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="/eventfeed" element={<EventFeed />} />
-              <Route path="/catagory" element={<Catagory />}>
-                {" "}
-              </Route>
+              <Route path="/catagory" element={<Catagory />} />
               <Route path="/featured" element={<Featured />} />
               <Route path="/allalbums" element={<AllAlbums />} />
               <Route path="/allartists" element={<AllArtists />} />
