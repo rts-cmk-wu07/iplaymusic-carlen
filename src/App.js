@@ -80,6 +80,7 @@ function App() {
 														path="/playlistdetails/:id"
 														element={<PlaylistDetails />}
 													/>
+													
 												</Route>
 											</>
 										);
