@@ -25,7 +25,11 @@ export default function PlaylistDetails() {
 	var [token] = useContext(TokenContext);
 	var [playlist, setPlaylist] = useState([]);
 	var [tracks, setTracks] = useState([]);
-
+	const msToMinutesAndSeconds = (ms) => {
+		const minutes = Math.floor(ms / 60000);
+		const seconds = ((ms % 60000) / 1000).toFixed(0);
+		return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+	};
 	useEffect(
 		function () {
 			axios
@@ -59,7 +63,6 @@ export default function PlaylistDetails() {
 	);
 	console.log("playlist", playlist);
 	console.log("tracks", tracks);
-
 	return (
 		<div>
 			<Heading
@@ -78,11 +81,45 @@ export default function PlaylistDetails() {
 				{tracks?.map((track) => {
 					return (
 						<>
-							<p>{track.track.name}</p>
+							<div className="flex">
+								<img
+									className="w-10 h-10 rounded-lg"
+									src={track.track.album.images[0].url}
+									alt="album cover"
+								/>
+								<div className="ml-3">
+									<p className="text-lg">{track.track.name}</p>
+									<p className="text-sm">{track.track.artists[0].name}</p>
+
+									<p className="text-sm">
+										{msToMinutesAndSeconds(track.track.duration_ms)}
+									</p>
+
+									<p className="text-sm">{track.track.album.name}</p>
+
+									<p className="text-sm">{track.track.album.release_date}</p>
+								</div>
+							</div>
 						</>
 					);
 				})}
 			</p>
 		</div>
 	);
+}
+
+{
+	/* <div>
+									<img
+										className="scale-50 rounded-lg -mt-8"
+										src={track.track.album.images[0].url}
+										alt="album cover"
+									/>
+								</div>
+								<div className="ml-3">
+								<p>{track.track.name}</p></div>
+								<p>{track.track.album.name}</p>
+								<p>{track.track.artists[0].name}</p>
+
+								<p>{msToMinutesAndSeconds(track.track.duration_ms)}</p> */
 }
