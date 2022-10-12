@@ -35,34 +35,27 @@ const AlbumDetails = () => {
         .then((response) => {
           const data = response.data;
           setSingleAlbum(data);
+          
         })
         .catch((err) => console.error(err));
     },
     [token, setSingleAlbum]
   );
-  console.log(singleAlbum.tracks)
-  const  listOfSong = async () => {
-    return singleAlbum.tracks.items.map((items) => (
-      <Song
-        songtitle={items}
-        songtime="3:24"
-        artist="Billy Ray Cyrus"
-      />
+  
+ 
 
-    ))
-  }
-  console.log(listOfSong());
   return (
     
     <div>
       <div css={styles.bgImage}>
         <Heading text={singleAlbum.name} color="white" />
         <p className="text-white">{singleAlbum.total_tracks} Songs</p>
+        
       </div>
       <section className="p-3">
         <h3 css={styles.theme}>All songs</h3>
         <div className="flex flex-col w-full">
-          {listOfSong()}
+          
         </div>
       </section>
     </div>
