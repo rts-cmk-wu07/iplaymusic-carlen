@@ -63,6 +63,7 @@ export default function PlaylistDetails() {
 	return (
 		<div>
 			<Heading
+				className="pl-3"
 				text={playlist.name}
 				color="white"
 			/>
@@ -74,7 +75,13 @@ export default function PlaylistDetails() {
 			<p
 				className="text-center text-m"
 				css={styles.fontColor}>
-				{/* By: {data.owner.display_name} */}
+				{tracks?.map((track) => {
+					return (
+						<>
+							<p>{track.track.name}</p>
+						</>
+					);
+				})}
 			</p>
 		</div>
 	);
