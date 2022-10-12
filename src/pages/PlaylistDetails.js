@@ -1,8 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import axios from "axios";
+
 import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Heading from "../comp/sub-comp/Heading";
+
 import ColorContext from "../context/colorContext";
 import TokenContext from "../context/TokenContext";
 
@@ -17,7 +20,7 @@ export default function PlaylistDetails() {
 		`,
 	};
 
-	const { playlistId } = useParams();
+	const { id } = useParams();
 
 	var [token] = useContext(TokenContext);
 	var [playlist, setPlaylist] = useState([]);
@@ -26,22 +29,23 @@ export default function PlaylistDetails() {
 	useEffect(
 		function () {
 			axios
-				.get("https://api.spotify.com/v1/playlists/" + playlistId + "/", {
+				.get(`https://api.spotify.com/v1/playlists/${id}`, {
 					headers: {
 						Authorization: "Bearer " + token.access_token,
 					},
 				})
 				.then((response) => {
-					const data = response.data.items;
+					const data = response.data;
 					setPlaylist(data);
-				});
+				})
+				.catch((error) => console.log(error));
 		},
-		[token, playlistId, setPlaylist]
+		[token, id, setPlaylist]
 	);
 	useEffect(
 		function () {
 			axios
-				.get("https://api.spotify.com/v1/playlists/" + playlistId + "/tracks", {
+				.get("https://api.spotify.com/v1/playlists/" + id + "/tracks", {
 					headers: {
 						Authorization: "Bearer " + token.access_token,
 					},
@@ -51,17 +55,21 @@ export default function PlaylistDetails() {
 					setTracks(data);
 				});
 		},
-		[token, playlistId, setTracks]
+		[token, id, setTracks]
 	);
 	console.log("playlist", playlist);
 	console.log("tracks", tracks);
-	console.log("token", token);
+
 	return (
 		<div>
+			<Heading
+				text={playlist.name}
+				color="white"
+			/>
 			<h3
 				className="text-center text-lg"
 				css={styles.fontColor}>
-				{/* {data.name} */}
+				{playlist.description}
 			</h3>
 			<p
 				className="text-center text-m"
