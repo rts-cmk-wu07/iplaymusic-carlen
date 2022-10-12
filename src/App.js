@@ -1,23 +1,23 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import TokenContext from "./context/TokenContext"
-import ColorContext from "./context/colorContext"
-import { vars } from "./vars"
+import TokenContext from "./context/TokenContext";
+import ColorContext from "./context/colorContext";
+import { vars } from "./vars";
 
-import Layout from "./templates/Layout"
+import Layout from "./templates/Layout";
 
-import Catagory from "./pages/Catagory"
-import HandleColorChange from "./context/handleColorChange"
-import AllAlbums from "./pages/AllAlbums"
-import AllArtists from "./pages/AllArtists"
-import EventFeed from "./pages/EventFeed"
-import Home from "./pages/Home"
-import Playlists from "./pages/Playlists"
-import Featured from "./templates/Featured"
-import Login from "./templates/Login"
-import Callback from "./pages/Callback"
-import NotFound from "./pages/NotFound"
+import Catagory from "./pages/Catagory";
+import HandleColorChange from "./context/handleColorChange";
+import AllAlbums from "./pages/AllAlbums";
+import AllArtists from "./pages/AllArtists";
+import EventFeed from "./pages/EventFeed";
+import Home from "./pages/Home";
+import Playlists from "./pages/Playlists";
+import Featured from "./templates/Featured";
+import Login from "./templates/Login";
+import Callback from "./pages/Callback";
+import NotFound from "./pages/NotFound";
 import PlaylistDetails from "./pages/PlaylistDetails";
 
 function App() {
@@ -77,10 +77,9 @@ function App() {
 														element={<Playlists />}
 													/>
 													<Route
-														path="/playlistdetails/:id"
+														path="playlists/playlistdetails/:id"
 														element={<PlaylistDetails />}
 													/>
-													
 												</Route>
 											</>
 										);
@@ -107,4 +106,4 @@ function App() {
 	);
 }
 
-export default App
+export default App;
