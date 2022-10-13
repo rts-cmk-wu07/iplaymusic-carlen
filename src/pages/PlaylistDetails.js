@@ -81,24 +81,19 @@ export default function PlaylistDetails() {
 				{tracks?.map((track) => {
 					return (
 						<>
-							<div className="flex">
+							<div on className="flex space-around gap-4 pl-3 pb-3 items-center">
 								<img
-									className="w-10 h-10 rounded-lg"
+									className="w-12 h-12 rounded-lg"
 									src={track.track.album.images[0].url}
 									alt="album cover"
 								/>
-								<div className="ml-3">
-									<p className="text-lg">{track.track.name}</p>
-									<p className="text-sm">{track.track.artists[0].name}</p>
-
-									<p className="text-sm">
+								<div className="ml-2 flex flex-col">
+									<p className="text-left text-sm w-60 text-ellipsis truncate">{track.track.name}</p>
+									<p className="text-left text-xs">{track.track.artists[0].name}</p>
+								</div>
+                <p className="text-sm">
 										{msToMinutesAndSeconds(track.track.duration_ms)}
 									</p>
-
-									<p className="text-sm">{track.track.album.name}</p>
-
-									<p className="text-sm">{track.track.album.release_date}</p>
-								</div>
 							</div>
 						</>
 					);
@@ -108,18 +103,4 @@ export default function PlaylistDetails() {
 	);
 }
 
-{
-	/* <div>
-									<img
-										className="scale-50 rounded-lg -mt-8"
-										src={track.track.album.images[0].url}
-										alt="album cover"
-									/>
-								</div>
-								<div className="ml-3">
-								<p>{track.track.name}</p></div>
-								<p>{track.track.album.name}</p>
-								<p>{track.track.artists[0].name}</p>
 
-								<p>{msToMinutesAndSeconds(track.track.duration_ms)}</p> */
-}
