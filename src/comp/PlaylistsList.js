@@ -24,7 +24,7 @@ export default function PlaylistsList({data}) {
           <h3 className="text-center text-lg" css={styles.fontColor}>{data.name}</h3>
           <p className="text-center text-m" css={styles.fontColor}>By: {data.owner.display_name}</p>
         </ul>
-      <div>
+      <div className="flex justify-center">
         <img className="scale-75 rounded-lg -mt-8" src={data.images[0].url} alt="playlist cover" />
       </div> 
     </Container>

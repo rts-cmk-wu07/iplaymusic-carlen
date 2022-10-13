@@ -64,20 +64,15 @@ export default function PlaylistDetails() {
 		[token, id, setTracks]
 	);
   
- const handleCurrentSongClickEvent =( element ) => {
-	if(currentSong === element.track){
-		setCurrentSong(element.track)
+ const handleCurrentSongClickEvent = ( track ) => {
+	if(currentSong !== track){
+		setCurrentSong(track)
 	}
 	else{
 		return null
   }
  }			
-			
-		
-  
-  
 	return (
-
 		<div>
 			<Heading
 				className="pl-3"
@@ -95,7 +90,7 @@ export default function PlaylistDetails() {
 				{tracks?.map((track) => {
 					return (
 						<>
-							<div onClick={setCurrentSong(track)} className="flex space-around gap-4 pl-3 pb-3 items-center">
+							<div onClick={() => handleCurrentSongClickEvent(track)} className="flex space-around gap-4 pl-3 pb-3 items-center">
 								<img
 									className="w-12 h-12 rounded-lg"
 									src={track.track.album.images[0].url}

@@ -13,7 +13,7 @@ const Player = () => {
   const [currentSong, setCurrentSong] = useContext(CurrentSongContext)
 
   const [isPlaying, setIsPlaying] = useState(false);
-  console.log("currentSongPlayer", currentSong);
+  
   
   const musicTracks = [
     {
@@ -33,14 +33,15 @@ const Player = () => {
   const [isTracking, setIsTracking] = useState(0);
   const handleClickPrevious = () => {
     setIsTracking((currentTrack) =>
-      currentTrack === 0 ? currentSong.track.length - 1 : currentTrack - 1
+      currentTrack === 0 ? currentSong.length - 1 : currentTrack - 1
     );
   };
   const handleClickNext = () => {
     setIsTracking((currentTrack) =>
-      currentTrack < currentSong.track.length - 1 ? currentTrack + 1 : 0
+      currentTrack < currentSong.length - 1 ? currentTrack + 1 : 0
     );
   };
+  
   const styles = {
     audioplayer: css`
       webkit-appearance: none;
@@ -70,6 +71,7 @@ const Player = () => {
     setIsPlaying(!isPlaying);
     console.log(isPlaying);
   }
+  
   return (
     <div
       css={styles.audioplayer}
@@ -93,10 +95,10 @@ const Player = () => {
             width: "100vw"    
           }}
           autoPlay
-          src={currentSong.track?.preview_url}
-          onPlay={currentSong.track?.preview_url}
-          header={`Now Playing "${currentSong.track?.name}"`}
-          footer={`From ${currentSong.track?.artists[0].name}`}
+          src={currentSong?.track?.preview_url}
+          onPlay={currentSong?.track?.preview_url}
+          header={`Now Playing "${currentSong?.track?.name}"`}
+          footer={`From ${currentSong?.track?.artists[0].name}`}
           onClickPrevious={handleClickPrevious}
           onClickNext={handleClickNext}
           onEnded={handleClickNext}
