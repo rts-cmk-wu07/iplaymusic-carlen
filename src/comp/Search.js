@@ -55,13 +55,13 @@ const Search = () => {
           </div>
         </div>
       ) : (
-        <button
-          onClick={() => {
-            setSearching(true);
-          }}
-        >
-          Search
-        </button>
+        <div  onClick={() => {
+          setSearching(true);
+        }} className="mr-5 mt-5 flex items-center gap-1">
+          <span>Search</span>
+        
+        <IonIcon name="search"/>
+          </div>
       )}
     </div>
   );

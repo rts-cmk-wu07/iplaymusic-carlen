@@ -48,7 +48,7 @@ const AlbumDetails = () => {
         <p className="text-white absolute z-10 top-20">{singleAlbum.total_tracks} Songs</p>
         {singleAlbum.images && <img src={singleAlbum.images[0]?.url} className="h-128 z-0 top-0 -mt-24" alt="" />}
       </div>
-      <section className="p-3 relative">
+      <section className="p-3 relative z-0">
         <h3 css={styles.theme}>All songs</h3>
         <div className="flex flex-col w-full">
         {singleAlbum.tracks && singleAlbum.tracks.items.map((track) => (
