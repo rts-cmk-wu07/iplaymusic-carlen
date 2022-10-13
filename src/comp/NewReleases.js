@@ -4,7 +4,7 @@ import AVTR1 from "./assets/avatar1.jpg"
 import AVTR2 from "./assets/avatar2.jpg"
 import AVTR3 from "./assets/avatar3.jpg"
 import AVTR4 from "./assets/avatar4.jpg"
-
+import { Link } from "react-router-dom"
 import { useContext } from "react"
 import ColorContext from "../context/colorContext"
 
@@ -101,9 +101,9 @@ const NewReleases = () => {
                 <p>{items.tracks.items.length} songs</p>
               </div>
             </label>
+            </Link>
           </section>
-        )
-      })}
+      ))}
     </section>
   )
 }
