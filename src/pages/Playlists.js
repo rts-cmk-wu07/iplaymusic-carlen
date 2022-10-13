@@ -1,4 +1,4 @@
-import PlaylistsSongs from "../comp/PlaylistsSongs";
+import MyPlaylists from "../comp/MyPlaylists";
 import SliderPlaylists from "../comp/SliderPlaylists";
 import Heading from "../comp/sub-comp/Heading";
 // import PlaylistsHeader from "../comp/sub-comp/PlaylistsHeader";
@@ -9,7 +9,7 @@ export default function Playlists() {
       <Heading className="mb-3" text="Playlists"></Heading>
       {/* <PlaylistsHeader /> */}
       <SliderPlaylists />
-      <PlaylistsSongs />
+      <MyPlaylists />
     </div>
   );
 }

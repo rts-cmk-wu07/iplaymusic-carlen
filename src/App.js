@@ -19,6 +19,7 @@ import Login from "./templates/Login"
 import Callback from "./pages/Callback"
 import NotFound from "./pages/NotFound"
 import AlbumDetails from "./pages/AlbumDetails"
+import PlaylistDetails from "./pages/PlaylistDetails";
 
 function App() {
 	const { light, dark } = vars;
@@ -76,6 +77,10 @@ function App() {
 													<Route
 														path="/playlists"
 														element={<Playlists />}
+													/>
+													<Route
+														path="/playlistdetails/:id"
+														element={<PlaylistDetails />}
 													/>
 												</Route>
 											</>
