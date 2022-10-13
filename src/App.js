@@ -62,15 +62,16 @@ function App() {
                             </Route>
                             <Route path="/featured" element={<Featured />} />
                             <Route path="/allalbums" element={<AllAlbums />} />
+                            <Route path="/albumdetails/:id" element={<AlbumDetails/>}/>
                             <Route
                               path="/allartists"
                               element={<AllArtists />}
                             />
                             <Route path="/playlists" element={<Playlists />} />
                             <Route
-                              path="/playlistdetails/:id"
-                              element={<PlaylistDetails />}
-                            />
+														path="playlists/playlistdetails/:id"
+														element={<PlaylistDetails />}
+													/>
                           </Route>
                         </>
                       );
