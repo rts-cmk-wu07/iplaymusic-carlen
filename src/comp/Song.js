@@ -6,8 +6,12 @@ import { css } from "@emotion/react";
 import { useContext } from "react";
 
 import ColorContext from "../context/colorContext";
+<<<<<<< HEAD
+const Song = ({ title, artist, duration, image }) => {
+=======
 const Song = ({ title, artist, duration, id }) => {
 	
+>>>>>>> main
 	const colors = useContext(ColorContext);
 	const styles = {
 		theme: css`
@@ -15,6 +19,10 @@ const Song = ({ title, artist, duration, id }) => {
 		`,
 	};
 	return (
+<<<<<<< HEAD
+		<div className="flex pl-4 mb-4">
+			<img src={image} className="h-16" alt="" />
+=======
 
 		<div className="flex pl-4 mb-4" 
 		>
@@ -24,6 +32,7 @@ const Song = ({ title, artist, duration, id }) => {
               "
 			/>
 			
+>>>>>>> main
 			<div className="flex justify-between w-72 items-center">
 				<div className="flex flex-col w-full ml-3">
 					<span

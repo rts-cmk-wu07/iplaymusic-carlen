@@ -14,7 +14,7 @@ const Heading = ({ text, color }) => {
     -webkit-text-fill-color: transparent;
   `
   return (
-    <h1 css={textColor} className=" text-3xl font-bold">
+    <h1 css={textColor} className=" text-3xl font-bold absolute z-10">
       {text}
     </h1>
   )

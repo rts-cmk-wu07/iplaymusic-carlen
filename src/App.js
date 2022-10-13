@@ -18,6 +18,7 @@ import Featured from "./templates/Featured";
 import Login from "./templates/Login";
 import Callback from "./pages/Callback";
 import NotFound from "./pages/NotFound";
+import AlbumDetails from "./pages/AlbumDetails";
 import PlaylistDetails from "./pages/PlaylistDetails";
 import IsDarkContext from "./context/isDarkContext";
 
