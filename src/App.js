@@ -19,8 +19,10 @@ import Login from "./templates/Login";
 import Callback from "./pages/Callback";
 import NotFound from "./pages/NotFound";
 import PlaylistDetails from "./pages/PlaylistDetails";
+import CurrentSongContext from "./context/currentSongContext";
 
 function App() {
+	const [currentSong, setCurrentSong] = useState("")
 	const { light, dark } = vars;
 	const [theme, setTheme] = useState(light);
 	const handleThemeChange = () => {
@@ -37,6 +39,7 @@ function App() {
 		<HandleColorChange.Provider value={handleThemeChange}>
 			<ColorContext.Provider value={colors}>
 				<TokenContext.Provider value={tokenState}>
+					<CurrentSongContext.Provider value={[currentSong, setCurrentSong]}>
 					<div>
 						<BrowserRouter>
 							<Routes>
@@ -100,6 +103,7 @@ function App() {
 							</Routes>
 						</BrowserRouter>
 					</div>
+					</CurrentSongContext.Provider>
 				</TokenContext.Provider>
 			</ColorContext.Provider>
 		</HandleColorChange.Provider>

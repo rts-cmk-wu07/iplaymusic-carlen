@@ -6,10 +6,15 @@ import AudioPlayer from "react-h5-audio-player";
 import "./Player.css";
 import { useContext } from "react";
 import ColorContext from "../context/colorContext";
+import CurrentSongContext from "../context/currentSongContext";
 
 const Player = () => {
   const colors = useContext(ColorContext);
+  const [currentSong, setCurrentSong] = useContext(CurrentSongContext)
+
   const [isPlaying, setIsPlaying] = useState(false);
+  console.log("currentSongPlayer", currentSong);
+  
   const musicTracks = [
     {
       name: "name",
@@ -17,7 +22,6 @@ const Player = () => {
       creator: "adele",
       image: "https://c-fa.cdn.smule.com/rs-s80/arr/fa/94/0c221ed5-f8ce-43d9-abe0-01ea331e81d5_1024.jpg"
     },
-
     {
       name: "Mystery",
       src: "http://github.com/cookieman2002/iplay-music-mp3/blob/main/bensound-memories.mp3?raw=true",
@@ -26,15 +30,15 @@ const Player = () => {
     },
   ];
 
-  const [isTracking, setIsTracking] = useState(1);
+  const [isTracking, setIsTracking] = useState(0);
   const handleClickPrevious = () => {
     setIsTracking((currentTrack) =>
-      currentTrack === 0 ? musicTracks.length - 1 : currentTrack - 1
+      currentTrack === 0 ? currentSong.track.length - 1 : currentTrack - 1
     );
   };
   const handleClickNext = () => {
     setIsTracking((currentTrack) =>
-      currentTrack < musicTracks.length - 1 ? currentTrack + 1 : 0
+      currentTrack < currentSong.track.length - 1 ? currentTrack + 1 : 0
     );
   };
   const styles = {
@@ -87,13 +91,12 @@ const Player = () => {
           style={{
             background: "linear-gradient(#ee0979, #341931)",
             width: "100vw"    
-
           }}
           autoPlay
-          src={musicTracks[isTracking].src}
-          onPlay={musicTracks[isTracking].src}
-          header={`now playing ${musicTracks[isTracking].name}`}
-          footer={`from ${musicTracks[isTracking].creator}`}
+          src={currentSong.track?.preview_url}
+          onPlay={currentSong.track?.preview_url}
+          header={`Now Playing "${currentSong.track?.name}"`}
+          footer={`From ${currentSong.track?.artists[0].name}`}
           onClickPrevious={handleClickPrevious}
           onClickNext={handleClickNext}
           onEnded={handleClickNext}

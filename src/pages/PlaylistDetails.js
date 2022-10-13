@@ -7,9 +7,11 @@ import { useParams } from "react-router-dom";
 import Heading from "../comp/sub-comp/Heading";
 
 import ColorContext from "../context/colorContext";
+import CurrentSongContext from "../context/currentSongContext";
 import TokenContext from "../context/TokenContext";
 
 export default function PlaylistDetails() {
+  const [currentSong, setCurrentSong] = useContext(CurrentSongContext)
 	const colors = useContext(ColorContext);
 	const styles = {
 		viewAll: css`
@@ -61,9 +63,21 @@ export default function PlaylistDetails() {
 		},
 		[token, id, setTracks]
 	);
-	console.log("playlist", playlist);
-	console.log("tracks", tracks);
+  
+ const handleCurrentSongClickEvent =( element ) => {
+	if(currentSong === element.track){
+		setCurrentSong(element.track)
+	}
+	else{
+		return null
+  }
+ }			
+			
+		
+  
+  
 	return (
+
 		<div>
 			<Heading
 				className="pl-3"
@@ -81,19 +95,21 @@ export default function PlaylistDetails() {
 				{tracks?.map((track) => {
 					return (
 						<>
-							<div on className="flex space-around gap-4 pl-3 pb-3 items-center">
+							<div onClick={setCurrentSong(track)} className="flex space-around gap-4 pl-3 pb-3 items-center">
 								<img
 									className="w-12 h-12 rounded-lg"
 									src={track.track.album.images[0].url}
 									alt="album cover"
 								/>
 								<div className="ml-2 flex flex-col">
-									<p className="text-left text-sm w-60 text-ellipsis truncate">{track.track.name}</p>
-									<p className="text-left text-xs">{track.track.artists[0].name}</p>
+									<span className="text-left text-sm w-60 text-ellipsis truncate">{track.track.name}</span>
+									<span className="text-left text-xs">{track.track.artists[0].name}</span>
 								</div>
-                <p className="text-sm">
+								<div>
+                					<span className="text-sm">
 										{msToMinutesAndSeconds(track.track.duration_ms)}
-									</p>
+									</span>
+								</div>
 							</div>
 						</>
 					);
