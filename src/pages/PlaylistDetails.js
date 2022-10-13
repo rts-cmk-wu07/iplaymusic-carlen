@@ -79,10 +79,11 @@ export default function PlaylistDetails() {
 				color="white"
 			/>
 			<h3
-				className="w-30 text-center text-m pt-10 pb-8"
+				className="w-30 text-center text-m pt-10"
 				css={styles.fontColor}>
 				{playlist.description}
 			</h3>
+
 			<p
 				className="text-center text-m"
 				css={styles.fontColor}>
