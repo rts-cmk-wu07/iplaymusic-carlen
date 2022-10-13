@@ -46,7 +46,7 @@ const Search = () => {
           <div className="bg-black/50 inset-0 absolute z-20">
             <form className="flex justify-center mt-24" onSubmit={searchItems}>
               <input
-              className="w-64 h-10 mb-10 relative z-30"
+              className="w-64 h-10 mb-10 relative p-2 z-30"
                 type="search"
                 onChange={(e) => setSearchKey(e.target.value)}
               />
