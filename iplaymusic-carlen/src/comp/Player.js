@@ -84,16 +84,7 @@ const Player = () => {
     setIsPlaying(!isPlaying);
     console.log(isPlaying);
   }
-  // function useHookWithRefCallback() {
-  //   const ref = useRef(null);
-  //   const setRef = useCallback((node) => {
-  //     if (ref.current) {
-  //     }
-  //     if (node) {
-  //     }
-  //     ref.current = node;
-  //   }, []);
-  // }
+
   // const btn = document.querySelector(".rhap_play-pause-button");
   // const audio = document.querySelector("audio");
   // const visu = document.getElementById("visu");

@@ -14,34 +14,41 @@ import Home from "./pages/Home";
 import Playlists from "./pages/Playlists";
 import AlbumDetails from "./pages/AlbumDetails";
 import Featured from "./templates/Featured";
+import IsDarkContext from "./context/isDarkContext";
 
 function App() {
   const { light, dark } = vars;
+  const [isDark, setIsDark] = useState(false);
   const [theme, setTheme] = useState(light);
+
   const handleThemeChange = () => {
     if (theme === light) {
       setTheme(dark);
+      setIsDark(true);
     } else {
       setTheme(light);
+      setIsDark(false);
     }
   };
   const colors = theme;
   return (
     <HandleColorChange.Provider value={handleThemeChange}>
       <ColorContext.Provider value={colors}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="/eventfeed" element={<EventFeed />} />
-              <Route path="/catagory" element={<Catagory />} />
-              <Route path="/featured" element={<Featured />} />
-              <Route path="/allalbums" element={<AllAlbums />} />
-              <Route path="/allartists" element={<AllArtists />} />
-              <Route path="/playlists" element={<Playlists />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <IsDarkContext.Provider value={isDark}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="/eventfeed" element={<EventFeed />} />
+                <Route path="/catagory" element={<Catagory />} />
+                <Route path="/featured" element={<Featured />} />
+                <Route path="/allalbums" element={<AllAlbums />} />
+                <Route path="/allartists" element={<AllArtists />} />
+                <Route path="/playlists" element={<Playlists />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </IsDarkContext.Provider>
       </ColorContext.Provider>
     </HandleColorChange.Provider>
   );

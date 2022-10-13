@@ -14,7 +14,7 @@ const Nav = ({ top }) => {
   const colors = useContext(ColorContext);
   const styles = {
     bg: css`
-      background: ${colors.bg};
+      background: transparent;
     `,
     bottomBg: css`
       background: ${colors.addcolor};
@@ -63,7 +63,11 @@ const Nav = ({ top }) => {
           >
             <IonIcon name="caret-up-outline" />
           </NavLink>
-          <Button onClick={ThemeHandler} icon={"contrast-outline"} />
+          <Button
+            onClick={ThemeHandler}
+            cord="true"
+            icon={"contrast-outline"}
+          />
           <NavLink
             css={styles.icon}
             className="flex justify-center items-center w-9 h-9 rounded-full"
