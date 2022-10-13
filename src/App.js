@@ -20,9 +20,11 @@ import Callback from "./pages/Callback";
 import NotFound from "./pages/NotFound";
 import AlbumDetails from "./pages/AlbumDetails";
 import PlaylistDetails from "./pages/PlaylistDetails";
+import CurrentSongContext from "./context/currentSongContext";
 import IsDarkContext from "./context/isDarkContext";
 
 function App() {
+	const [currentSong, setCurrentSong] = useState("")
   const { light, dark } = vars;
   const [isDark, setIsDark] = useState(false);
   const [theme, setTheme] = useState(light);
@@ -44,6 +46,7 @@ function App() {
       <ColorContext.Provider value={colors}>
         <IsDarkContext.Provider value={isDark}>
           <TokenContext.Provider value={tokenState}>
+		        <CurrentSongContext.Provider value={[currentSong, setCurrentSong]}>
             <div>
               <BrowserRouter>
                 <Routes>
@@ -79,6 +82,7 @@ function App() {
                 </Routes>
               </BrowserRouter>
             </div>
+			      </CurrentSongContext.Provider>
           </TokenContext.Provider>
         </IsDarkContext.Provider>
       </ColorContext.Provider>
@@ -86,4 +90,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;;

@@ -23,18 +23,17 @@ const MyPlaylists = () => {
 	var [playlists, setPlaylists] = useState([]);
 	useEffect(
 		function () {
-				axios
-					.get("https://api.spotify.com/v1/me/playlists", {
-						headers: {
-							Authorization: "Bearer " + token.access_token,
-						},
-					})
+			axios
+				.get("https://api.spotify.com/v1/me/playlists", {
+					headers: {
+						Authorization: "Bearer " + token.access_token,
+					},
+				})
 
-					.then((response) => {
-						const data = response.data.items;
-						setPlaylists(data);
-						
-					});
+				.then((response) => {
+					const data = response.data.items;
+					setPlaylists(data);
+				});
 		},
 
 		[token, setPlaylists]
@@ -49,15 +48,16 @@ const MyPlaylists = () => {
 					My Playlists
 				</h2>
 			</div>
-			{playlists?.map(( playlist ) => {
-				
-				return ( 
+			{playlists?.map((playlist) => {
+				return (
 					<>
-								 <PlaylistsList key={playlist.id} data={playlist}/>	 
-					</>			 
-								)	
+						<PlaylistsList
+							key={playlist.id}
+							data={playlist}
+						/>
+					</>
+				);
 			})}
-			
 		</section>
 	);
 };
