@@ -24,70 +24,98 @@ import CurrentSongContext from "./context/currentSongContext";
 import IsDarkContext from "./context/isDarkContext";
 
 function App() {
-	const [currentSong, setCurrentSong] = useState("")
-  const { light, dark } = vars;
-  const [isDark, setIsDark] = useState(false);
-  const [theme, setTheme] = useState(light);
+	const [currentSong, setCurrentSong] = useState("");
+	const { light, dark } = vars;
+	const [isDark, setIsDark] = useState(false);
+	const [theme, setTheme] = useState(light);
 
-  const handleThemeChange = () => {
-    if (theme === light) {
-      setTheme(dark);
-      setIsDark(true);
-    } else {
-      setTheme(light);
-      setIsDark(false);
-    }
-  };
-  const colors = theme;
-  var tokenState = useState(null);
+	const handleThemeChange = () => {
+		if (theme === light) {
+			setTheme(dark);
+			setIsDark(true);
+		} else {
+			setTheme(light);
+			setIsDark(false);
+		}
+	};
+	const colors = theme;
+	var tokenState = useState(null);
 
-  return (
-    <HandleColorChange.Provider value={handleThemeChange}>
-      <ColorContext.Provider value={colors}>
-        <IsDarkContext.Provider value={isDark}>
-          <TokenContext.Provider value={tokenState}>
-		        <CurrentSongContext.Provider value={[currentSong, setCurrentSong]}>
-            <div>
-              <BrowserRouter>
-                <Routes>
-                  {(function () {
-                    if (tokenState[0]?.access_token) {
-                      return (
-                        <>
-                          <Route path="/" element={<Layout />}>
-                            <Route index element={<Home />} />
-                            <Route path="/eventfeed" element={<EventFeed />} />
-                            <Route path="/catagory" element={<Catagory />}>
-                              {" "}
-                            </Route>
-                            <Route path="/featured" element={<Featured />} />
-                            <Route path="/allalbums" element={<AllAlbums />} />
-                            <Route
-                              path="/allartists"
-                              element={<AllArtists />}
-                            />
-                            <Route path="/playlists" element={<Playlists />} />
-                            <Route
-                              path="/playlistdetails/:id"
-                              element={<PlaylistDetails />}
-                            />
-                          </Route>
-                        </>
-                      );
-                    }
-                  })()}
-                  <Route path="/" element={<Login />} />
-                  <Route path="/callback" element={<Callback />} />
-                  <Route path="" element={<NotFound />} />
-                </Routes>
-              </BrowserRouter>
-            </div>
-			      </CurrentSongContext.Provider>
-          </TokenContext.Provider>
-        </IsDarkContext.Provider>
-      </ColorContext.Provider>
-    </HandleColorChange.Provider>
-  );
+	return (
+		<HandleColorChange.Provider value={handleThemeChange}>
+			<ColorContext.Provider value={colors}>
+				<IsDarkContext.Provider value={isDark}>
+					<TokenContext.Provider value={tokenState}>
+						<CurrentSongContext.Provider value={[currentSong, setCurrentSong]}>
+							<div>
+								<BrowserRouter>
+									<Routes>
+										{(function () {
+											if (tokenState[0]?.access_token) {
+												return (
+													<>
+														<Route
+															path="/"
+															element={<Layout />}>
+															<Route
+																index
+																element={<Home />}
+															/>
+															<Route
+																path="/eventfeed"
+																element={<EventFeed />}
+															/>
+															<Route
+																path="/catagory"
+																element={<Catagory />}>
+																{" "}
+															</Route>
+															<Route
+																path="/featured"
+																element={<Featured />}
+															/>
+															<Route
+																path="/allalbums"
+																element={<AllAlbums />}
+															/>
+															<Route
+																path="/allartists"
+																element={<AllArtists />}
+															/>
+															<Route
+																path="/playlists"
+																element={<Playlists />}
+															/>
+															<Route
+																path="playlists/playlistdetails/:id"
+																element={<PlaylistDetails />}
+															/>
+														</Route>
+													</>
+												);
+											}
+										})()}
+										<Route
+											path="/"
+											element={<Login />}
+										/>
+										<Route
+											path="/callback"
+											element={<Callback />}
+										/>
+										<Route
+											path=""
+											element={<NotFound />}
+										/>
+									</Routes>
+								</BrowserRouter>
+							</div>
+						</CurrentSongContext.Provider>
+					</TokenContext.Provider>
+				</IsDarkContext.Provider>
+			</ColorContext.Provider>
+		</HandleColorChange.Provider>
+	);
 }
 
-export default App;;
+export default App;
