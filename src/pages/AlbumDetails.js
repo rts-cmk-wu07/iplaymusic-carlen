@@ -35,27 +35,29 @@ const AlbumDetails = () => {
         .then((response) => {
           const data = response.data;
           setSingleAlbum(data);
-          
+          console.log(data)
         })
         .catch((err) => console.error(err));
     },
     [token, setSingleAlbum]
   );
-  
- 
-
   return (
-    
     <div>
-      <div css={styles.bgImage}>
+      <div className="relative" >
         <Heading text={singleAlbum.name} color="white" />
-        <p className="text-white">{singleAlbum.total_tracks} Songs</p>
-        
+        <p className="text-white absolute z-10 top-20">{singleAlbum.total_tracks} Songs</p>
+        {singleAlbum.images && <img src={singleAlbum.images[0]?.url} className="h-128 z-0 top-0" alt="" />}
       </div>
-      <section className="p-3">
+      <section className="p-3 relative">
         <h3 css={styles.theme}>All songs</h3>
         <div className="flex flex-col w-full">
-          
+        {singleAlbum.tracks && singleAlbum.tracks.items.map((track) => (
+          <>
+          {console.log(track)}
+          <Song title={track.name} artist={track.artists && track.artists[0].name} image={singleAlbum.images && singleAlbum.images[0].url}  />
+          </>
+        ))}
+
         </div>
       </section>
     </div>
