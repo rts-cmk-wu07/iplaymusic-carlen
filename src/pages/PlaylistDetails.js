@@ -11,7 +11,7 @@ import CurrentSongContext from "../context/currentSongContext";
 import TokenContext from "../context/TokenContext";
 
 export default function PlaylistDetails() {
-  const [currentSong, setCurrentSong] = useContext(CurrentSongContext)
+	const [currentSong, setCurrentSong] = useContext(CurrentSongContext);
 	const colors = useContext(ColorContext);
 	const styles = {
 		viewAll: css`
@@ -63,15 +63,14 @@ export default function PlaylistDetails() {
 		},
 		[token, id, setTracks]
 	);
-  
- const handleCurrentSongClickEvent = ( track ) => {
-	if(currentSong !== track){
-		setCurrentSong(track)
-	}
-	else{
-		return null
-  }
- }			
+
+	const handleCurrentSongClickEvent = (track) => {
+		if (currentSong !== track) {
+			setCurrentSong(track);
+		} else {
+			return null;
+		}
+	};
 	return (
 		<div>
 			<Heading
@@ -80,7 +79,7 @@ export default function PlaylistDetails() {
 				color="white"
 			/>
 			<h3
-				className="text-center text-lg"
+				className="w-30 text-center text-m pt-10 pb-8"
 				css={styles.fontColor}>
 				{playlist.description}
 			</h3>
@@ -90,18 +89,24 @@ export default function PlaylistDetails() {
 				{tracks?.map((track) => {
 					return (
 						<>
-							<div onClick={() => handleCurrentSongClickEvent(track)} className="flex space-around gap-4 pl-3 pb-3 items-center">
+							<div
+								onClick={() => handleCurrentSongClickEvent(track)}
+								className="flex space-around gap-4 pl-3 pb-3 items-center">
 								<img
 									className="w-12 h-12 rounded-lg"
 									src={track.track.album.images[0].url}
 									alt="album cover"
 								/>
 								<div className="ml-2 flex flex-col">
-									<span className="text-left text-sm w-60 text-ellipsis truncate">{track.track.name}</span>
-									<span className="text-left text-xs">{track.track.artists[0].name}</span>
+									<span className="text-left text-sm w-60 text-ellipsis truncate">
+										{track.track.name}
+									</span>
+									<span className="text-left text-xs">
+										{track.track.artists[0].name}
+									</span>
 								</div>
 								<div>
-                					<span className="text-sm">
+									<span className="text-sm">
 										{msToMinutesAndSeconds(track.track.duration_ms)}
 									</span>
 								</div>
@@ -113,5 +118,3 @@ export default function PlaylistDetails() {
 		</div>
 	);
 }
-
-

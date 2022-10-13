@@ -24,22 +24,22 @@ import CurrentSongContext from "./context/currentSongContext";
 import IsDarkContext from "./context/isDarkContext";
 
 function App() {
-	const [currentSong, setCurrentSong] = useState("")
-  const { light, dark } = vars;
-  const [isDark, setIsDark] = useState(false);
-  const [theme, setTheme] = useState(light);
+	const [currentSong, setCurrentSong] = useState("");
+	const { light, dark } = vars;
+	const [isDark, setIsDark] = useState(false);
+	const [theme, setTheme] = useState(light);
 
-  const handleThemeChange = () => {
-    if (theme === light) {
-      setTheme(dark);
-      setIsDark(true);
-    } else {
-      setTheme(light);
-      setIsDark(false);
-    }
-  };
-  const colors = theme;
-  var tokenState = useState(null);
+	const handleThemeChange = () => {
+		if (theme === light) {
+			setTheme(dark);
+			setIsDark(true);
+		} else {
+			setTheme(light);
+			setIsDark(false);
+		}
+	};
+	const colors = theme;
+	var tokenState = useState(null);
 
   return (
     <HandleColorChange.Provider value={handleThemeChange}>
@@ -62,16 +62,15 @@ function App() {
                             </Route>
                             <Route path="/featured" element={<Featured />} />
                             <Route path="/allalbums" element={<AllAlbums />} />
-                            <Route path="/albumdetails/:id" element={<AlbumDetails/>}/>
                             <Route
                               path="/allartists"
                               element={<AllArtists />}
                             />
                             <Route path="/playlists" element={<Playlists />} />
                             <Route
-														path="playlists/playlistdetails/:id"
-														element={<PlaylistDetails />}
-													/>
+                              path="/playlistdetails/:id"
+                              element={<PlaylistDetails />}
+                            />
                           </Route>
                         </>
                       );
@@ -91,4 +90,4 @@ function App() {
   );
 }
 
-export default App;;
+export default App;
