@@ -15,13 +15,10 @@ const Nav = ({ top }) => {
   const colors = useContext(ColorContext);
   const styles = {
     bg: css`
-      background: ${colors.bg};
+      background: transparent;
     `,
     bottomBg: css`
-      background: ${colors.addcolor};
-    `,
-    textColor: css`
-      color: ${colors.text};
+      background: transparent;
     `,
     icon: css`
       background: linear-gradient(

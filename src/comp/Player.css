@@ -47,11 +47,14 @@
   }
   
   .rhap_horizontal-reverse {
+
       flex-direction: row-reverse;
   }
   .rhap_horizontal-reverse .rhap_controls-section {
+    
     margin-right: 8px;
   }
+  
   
   .rhap_stacked-reverse {
     flex-direction: column-reverse;

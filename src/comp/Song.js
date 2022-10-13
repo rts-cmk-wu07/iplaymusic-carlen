@@ -1,6 +1,5 @@
 import PlayButton from "../comp/sub-comp/Playbutton";
 
-
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useContext } from "react";
