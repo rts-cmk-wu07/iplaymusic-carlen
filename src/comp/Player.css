@@ -18,13 +18,13 @@
   
   .rhap_header {
     margin-bottom: 10px;
-    z-index: 2000;
+    z-index: 20;
     color:green;
   }
   
   .rhap_footer {
     margin-top: 5px;
-    z-index:2000;
+    z-index:20;
     color:green;
     font-size: small;
 }
@@ -61,7 +61,7 @@
   }
   
   .rhap_progress-section {
-    z-index: 2000;
+    z-index: 20;
     display: flex;
     flex: 3 1 auto;
     align-items: center;

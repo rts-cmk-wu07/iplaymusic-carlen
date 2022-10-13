@@ -4,10 +4,11 @@ import { css } from "@emotion/react";
 import { NavLink, useLocation } from "react-router-dom";
 import BackBtn from "../comp/BackBtn";
 import Button from "../comp/sub-comp/Button";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import HandleColorChange from "../context/handleColorChange";
 import ColorContext from "../context/colorContext";
 import IonIcon from "@reacticons/ionicons";
+import Search from "../comp/Search";
 const Nav = ({ top }) => {
   const location = useLocation();
   const ThemeHandler = useContext(HandleColorChange);
@@ -30,12 +31,13 @@ const Nav = ({ top }) => {
       ) !important;
     `,
   };
+  
   return (
     <div>
       {top ? (
-        <div css={styles.bg} className="flex items-center justify-between">
+        <div css={styles.bg} className="flex items-center justify-between mb-5">
           {location.pathname === "/ " ? <BackBtn /> : <div></div>}
-          <div>Search</div>
+          <Search/>
         </div>
       ) : (
         <div
