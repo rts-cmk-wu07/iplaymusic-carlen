@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react"
-import AVTR1 from "./assets/avatar1.jpg"
-import AVTR2 from "./assets/avatar2.jpg"
-import AVTR3 from "./assets/avatar3.jpg"
-import AVTR4 from "./assets/avatar4.jpg"
+import { css } from "@emotion/react";
+import AVTR1 from "./assets/avatar1.jpg";
+import AVTR2 from "./assets/avatar2.jpg";
+import AVTR3 from "./assets/avatar3.jpg";
+import AVTR4 from "./assets/avatar4.jpg";
 
-import { useContext } from "react"
-import ColorContext from "../context/colorContext"
+import { useContext } from "react";
+import ColorContext from "../context/colorContext";
 
 const data = [
   {
@@ -57,10 +57,10 @@ const data = [
     artist: "Juice WRLD",
     amountSongs: "11",
   },
-]
+];
 
 const NewReleases = () => {
-  const colors = useContext(ColorContext)
+  const colors = useContext(ColorContext);
   const styles = {
     viewAll: css`
       color: ${colors.primary};
@@ -68,7 +68,7 @@ const NewReleases = () => {
     fontColor: css`
       color: ${colors.text};
     `,
-  }
+  };
 
   return (
     <section id="testimonials">
@@ -100,10 +100,10 @@ const NewReleases = () => {
               </div>
             </label>
           </section>
-        )
+        );
       })}
     </section>
-  )
-}
+  );
+};
 
-export default NewReleases
+export default NewReleases;
