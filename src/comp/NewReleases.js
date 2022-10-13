@@ -1,12 +1,14 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react"
-import AVTR1 from "./assets/avatar1.jpg"
-import AVTR2 from "./assets/avatar2.jpg"
-import AVTR3 from "./assets/avatar3.jpg"
-import AVTR4 from "./assets/avatar4.jpg"
-import { Link } from "react-router-dom"
-import { useContext } from "react"
-import ColorContext from "../context/colorContext"
+import { css } from "@emotion/react";
+import AVTR1 from "./assets/avatar1.jpg";
+import AVTR2 from "./assets/avatar2.jpg";
+import AVTR3 from "./assets/avatar3.jpg";
+import AVTR4 from "./assets/avatar4.jpg";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import ColorContext from "../context/colorContext";
+import TokenContext from "../context/TokenContext";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -57,10 +59,10 @@ const data = [
     artist: "Juice WRLD",
     amountSongs: "11",
   },
-]
+];
 
 const NewReleases = () => {
-  const colors = useContext(ColorContext)
+  const colors = useContext(ColorContext);
   const styles = {
     viewAll: css`
       color: ${colors.primary};
@@ -68,7 +70,31 @@ const NewReleases = () => {
     fontColor: css`
       color: ${colors.text};
     `,
-  }
+  };
+  var [token] = useContext(TokenContext);
+  console.log(token);
+  const [albums, setAlbums] = useState([]);
+  useEffect(
+    function () {
+      axios
+
+        .get(
+          "https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc",
+          {
+            headers: {
+              Authorization: "Bearer " + token.access_token,
+            },
+          }
+        )
+        .then((response) => {
+          const data = response.data.albums;
+          setAlbums(data);
+        
+        })
+        .catch((err) => console.error(err));
+    },
+    [token, setAlbums]
+  );
 
   return (
     <section id="testimonials">
@@ -101,11 +127,12 @@ const NewReleases = () => {
                 <p>{items.tracks.items.length} songs</p>
               </div>
             </label>
-            </Link>
-          </section>
+          </Link>
+
+        </section>
       ))}
     </section>
-  )
-}
+  );
+};
 
-export default NewReleases
+export default NewReleases;
