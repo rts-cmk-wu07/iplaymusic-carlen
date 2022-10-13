@@ -11,7 +11,7 @@ import CurrentSongContext from "../context/currentSongContext";
 const Player = () => {
 	const colors = useContext(ColorContext);
 	const [currentSong, setCurrentSong] = useContext(CurrentSongContext);
-
+	console.log(setCurrentSong);
 	const [isPlaying, setIsPlaying] = useState(false);
 
 	const musicTracks = [
@@ -105,12 +105,12 @@ const Player = () => {
 				</div>
 				<div>
 					<AudioPlayer
+						css={styles.overlay}
+						class="rhap_header rhap_footer rhap_container"
 						className={`${isPlaying ? "mb-10" : ""}`}
 						style={{
-							background: "linear-gradient(#341931,#111625 )",
 							width: "100vw",
 						}}
-						autoPlay
 						src={currentSong?.track?.preview_url}
 						onPlay={currentSong?.track?.preview_url}
 						header={`Now Playing "${currentSong?.track?.name}"`}
