@@ -89,7 +89,7 @@ const Player = () => {
 					css={styles.overlay}
 					className={`${
 						isPlaying
-							? "h-screen absolute w-screen top-0 flex justify-center flex-col items-center "
+							? "h-screen absolute z-30 w-screen top-0 flex justify-center flex-col items-center "
 							: "hidden"
 					} `}>
 					<IonIcon

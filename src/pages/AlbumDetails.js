@@ -43,13 +43,7 @@ const AlbumDetails = () => {
 		},
 		[token, setSingleAlbum]
 	);
-	const handleCurrentSongClickEvent = (track) => {
-		if (currentSong !== track) {
-			setCurrentSong(track);
-		} else {
-			return null;
-		}
-	};
+	
 	return (
 		<div>
 			<div className="relative">
@@ -76,7 +70,7 @@ const AlbumDetails = () => {
 							<>
 								{console.log(track)}
 								<Song
-									onClick={() => handleCurrentSongClickEvent(track)}
+									
 									title={track.name}
 									artist={track.artists && track.artists[0].name}
 									image={singleAlbum.images && singleAlbum.images[0].url}
