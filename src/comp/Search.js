@@ -45,23 +45,23 @@ const Search = () => {
 						onClick={() => {
 							setSearching(false);
 						}}
-						className="relative z-40 left-[-5vw] top-5">
+						className="relative z-50 left-[-5vw] top-5">
 						<IonIcon
 							name="close-circle-outline"
 							size="20"
 						/>
 					</button>
-					<div className="bg-black/50 inset-0 absolute z-20">
+					<div className="bg-black/50 inset-0 absolute z-40">
 						<form
 							className="flex justify-center mt-24"
 							onSubmit={searchItems}>
 							<input
-								className="w-64 h-10 mb-10 relative p-2 z-30 rounded-lg"
+								className="w-64 h-10 mb-10 relative p-2 z-40 rounded-lg"
 								type="search"
 								onChange={(e) => setSearchKey(e.target.value)}
 							/>
 						</form>
-						<div className="flex flex-col bg-white relative z-30 h-[59vh] overflow-y-scroll ml-6 mr-6 rounded-lg">
+						<div className="flex flex-col bg-white relative z-40 h-[59vh] overflow-y-scroll ml-6 mr-6 rounded-lg">
 							{itemsList()}
 						</div>
 					</div>
