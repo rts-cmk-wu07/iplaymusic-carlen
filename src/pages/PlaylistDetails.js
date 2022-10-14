@@ -63,7 +63,6 @@ export default function PlaylistDetails() {
 		},
 		[token, id, setTracks]
 	);
-
 	const handleCurrentSongClickEvent = (track) => {
 		if (currentSong !== track) {
 			setCurrentSong(track);
@@ -83,7 +82,6 @@ export default function PlaylistDetails() {
 				css={styles.fontColor}>
 				{playlist.description}
 			</h3>
-
 			<p
 				className="text-center text-m"
 				css={styles.fontColor}>

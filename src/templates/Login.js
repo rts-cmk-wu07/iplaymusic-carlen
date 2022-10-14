@@ -17,10 +17,8 @@ const Login = () => {
 			process.env.NODE_ENV === "production"
 				? "https://iplaymusic-cmm.netlify.app/callback"
 				: "http://localhost:8888/callback",
-
 		state,
 	});
-
 	return (
 		<Container>
 			<p className="text-9xl">NOT</p>

@@ -79,7 +79,7 @@ function App() {
                   })()}
                   <Route path="/" element={<Login />} />
                   <Route path="/callback" element={<Callback />} />
-                  <Route path="" element={<NotFound />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </BrowserRouter>
             </div>
