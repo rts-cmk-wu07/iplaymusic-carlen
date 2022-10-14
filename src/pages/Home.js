@@ -33,11 +33,7 @@ const Home = () => {
 				link="/allartists"
 				linkText="All Artists"
 			/>
-			<Links
-				color="red"
-				link="/albumdetails"
-				linkText="Albums Details"
-			/>
+			
 			<Links
 				color="blue"
 				link="/playlists"
