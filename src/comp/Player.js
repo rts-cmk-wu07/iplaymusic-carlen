@@ -7,6 +7,7 @@ import "./Player.css";
 import { useContext } from "react";
 import ColorContext from "../context/colorContext";
 import CurrentSongContext from "../context/currentSongContext";
+import plate from "./assets/music-plate.png"
 
 const Player = () => {
 	const colors = useContext(ColorContext);
@@ -98,7 +99,7 @@ const Player = () => {
 						onClick={() => playerHandler(!isPlaying)}
 					/>
 					<img
-						src={musicTracks[isTracking].image}
+						src={plate}
 						className="motion-safe:animate-spin rounded-full h-64 w-64 "
 						alt=""
 					/>
