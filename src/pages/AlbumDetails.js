@@ -11,6 +11,7 @@ import TokenContext from "../context/TokenContext";
 import CurrentSongContext from "../context/currentSongContext";
 const AlbumDetails = () => {
 	const [currentSong, setCurrentSong] = useContext(CurrentSongContext);
+	var [tracks, setTracks] = useState([]);
 	const amoSongs = 12;
 	const colors = useContext(ColorContext);
 	const { id } = useParams();
@@ -42,6 +43,21 @@ const AlbumDetails = () => {
 				.catch((err) => console.error(err));
 		},
 		[token, setSingleAlbum]
+	);
+	useEffect(
+		function () {
+			axios
+				.get("https://api.spotify.com/v1/albums/" + id + "/tracks", {
+					headers: {
+						Authorization: "Bearer " + token.access_token,
+					},
+				})
+				.then((response) => {
+					const data = response.data.items;
+					setTracks(data);
+				});
+		},
+		[token, id, setTracks]
 	);
 	
 	return (
